@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кубики & Карти - Контакти</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="contacts-page">
+<header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+        <div class="logo">
+            <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg">
+                <img src="assets/images/logo_1.svg" alt="Кубики & Карти" class="h-8 w-auto object-contain">
+            </a>
+        </div>
+        <nav class="menu order-3 lg:order-2 w-full lg:w-auto overflow-x-auto py-1">
+            <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max">
+                <li><a href="index.html" class="hover:text-black transition px-2 lg:px-0">Головна сторінка</a></li>
+                <li><a href="about.html" class="hover:text-black transition px-2 lg:px-0">Про сервіс</a></li>
+                <li><a href="contacts.html" class="active text-[#D92534] font-semibold pb-1 border-b-2 border-[#D92534] transition" aria-current="page">Контакти</a></li>
+            </ul>
+        </nav>
+        <div class="flex items-center gap-2 order-2 lg:order-3">
+            <button class="btn-login px-4 py-2 text-sm font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
+            <button class="btn-quiz px-4 py-2 text-sm font-semibold text-white bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] rounded-xl transition shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400" type="button">Пройти квіз</button>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+            <section>
+                <h1 class="font-[Raleway] text-2xl md:text-3xl font-bold text-center text-[#1A1D20]">Контакти</h1>
+            </section>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-5">
+                    <h2 class="font-[Raleway] text-xl md:text-2xl font-bold text-[#1A1D20]">Зв'яжіться з нами</h2>
+                    <p class="flex items-start gap-3 text-[#1A1D20]"><i class="fa-solid fa-envelope mt-1 text-[#D92534]" aria-hidden="true"></i><span><strong>Email:</strong> <a class="break-all hover:text-[#b51d2a]" href="mailto:info@kubyky-karty.com.ua">info@kubyky-karty.com.ua</a></span></p>
+                    <p class="flex items-start gap-3 text-[#1A1D20]"><i class="fa-solid fa-phone mt-1 text-[#D92534]" aria-hidden="true"></i><span><strong>Телефон:</strong> <a class="hover:text-[#b51d2a]" href="tel:+380441234567">+380 (44) 123-45-67</a></span></p>
+                    <p class="flex items-start gap-3 text-[#1A1D20]"><i class="fa-solid fa-location-dot mt-1 text-[#D92534]" aria-hidden="true"></i><span><strong>Адреса:</strong> вул. Ігрова, 10, м. Київ, Україна, 01001</span></p>
+                </div>
+                <figure class="text-center">
+                    <img class="rounded-2xl w-full h-64 md:h-80 object-cover" src="assets/images/map-illustration.jpg" alt="Схематична карта з позначкою нашого офісу в Києві" width="1600" height="800">
+                    <figcaption class="mt-2 text-sm text-gray-500"></figcaption>
+                </figure>
+            </section>
+                        <!-- Секція форми зворотного зв'язку -->
+            <section class="max-w-2xl mx-auto w-full bg-white rounded-2xl shadow-md p-6 md:p-8">
+                <h2 class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6">Напишіть нам</h2>
+                
+                <form id="feedbackForm" class="space-y-5" novalidate>
+                    <!-- Ім'я -->
+                    <div class="space-y-1">
+                        <label class="block font-medium text-[#1A1D20]" for="name">Ім'я <span class="text-[#D92534]">*</span></label>
+                        <input class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]" 
+                               type="text" id="name" name="name" placeholder="Введіть ваше ім'я" aria-describedby="nameError" aria-invalid="false">
+                        <p id="nameError" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="space-y-1">
+                        <label class="block font-medium text-[#1A1D20]" for="email">Email <span class="text-[#D92534]">*</span></label>
+                        <input class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]" 
+                               type="email" id="email" name="email" placeholder="example@mail.com" aria-describedby="emailError" aria-invalid="false">
+                        <p id="emailError" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Телефон (обов'язкове за методичкою) -->
+                    <div class="space-y-1">
+                        <label class="block font-medium text-[#1A1D20]" for="phone">Номер телефону <span class="text-[#D92534]">*</span></label>
+                        <input class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]" 
+                               type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" aria-describedby="phoneError" aria-invalid="false">
+                        <p id="phoneError" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Тема звернення (опціональне/селект) -->
+                    <div class="space-y-1">
+                        <label class="block font-medium text-[#1A1D20]" for="subject">Тема звернення:</label>
+                        <select class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]" id="subject" name="subject">
+                            <option value="" disabled selected>Оберіть тему</option>
+                            <option value="question">Запитання про сервіс</option>
+                            <option value="feedback">Відгук або пропозиція</option>
+                            <option value="partnership">Пропозиція про співпрацю</option>
+                            <option value="other">Інше</option>
+                        </select>
+                    </div>
+
+                    <!-- Повідомлення -->
+                    <div class="space-y-1">
+                        <label class="block font-medium text-[#1A1D20]" for="message">Повідомлення <span class="text-[#D92534]">*</span></label>
+                        <textarea class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]" 
+                                  id="message" name="message" placeholder="Введіть ваше повідомлення (мінімум 10 символів)" rows="4" aria-describedby="messageError" aria-invalid="false"></textarea>
+                        <p id="messageError" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Чекбокс згоди (обов'язкове за методичкою) -->
+                    <div class="space-y-1 pt-1">
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="agreement" name="agreement" 
+                                   class="mt-1 h-4 w-4 rounded border-gray-300 text-[#D92534] focus:ring-[#D92534] cursor-pointer"
+                                   aria-describedby="agreementError" aria-invalid="false">
+                            <label for="agreement" class="text-sm text-gray-700 cursor-pointer select-none">
+                                Я погоджуюся з <a href="#" class="text-[#D92534] underline hover:text-[#b51d2a]">політикою конфіденційності</a> та обробкою персональних даних <span class="text-[#D92534]">*</span>
+                            </label>
+                        </div>
+                        <p id="agreementError" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert"></p>
+                    </div>
+
+                    <button type="submit" class="min-h-[44px] w-full rounded-xl bg-[#D92534] px-4 py-3 font-semibold text-white transition hover:bg-[#b51d2a] active:bg-[#961521] focus:outline-none focus:ring-2 focus:ring-red-400">
+                        Надіслати
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+  <!-- <footer>: підвал сайту -->
+<footer class="bg-[#1A1D20] text-white pt-12 pb-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <!-- Верхня частина: основна сітка футера -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            
+            <!-- Брендинг та соціальні мережі -->
+            <div class="space-y-4">
+                <a class="inline-flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg" href="index.html" aria-label="Кубики & Карти — на головну">
+                    <svg class="w-8 h-8 text-[#D92534] shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+                        <circle cx="16" cy="8" r="1.5" fill="currentColor"/>
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                        <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
+                        <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold tracking-tight text-white group-hover:text-gray-200 transition">Кубики &amp; Карти</span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">Розумна підписка на настільні ігри</p>
+                <div class="flex items-center gap-3 pt-1" aria-label="Соціальні мережі">
+                    <!-- TODO: додати справжні посилання на соцмережі. -->
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-sm" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-sm" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Telegram">
+                        <i class="fa-brands fa-telegram text-sm" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Навігація: Клієнтам -->
+            <nav aria-label="Клієнтам" class="space-y-4">
+                <h2 class="text-base font-semibold text-white">Клієнтам</h2>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <!-- TODO: додати маршрути для інформаційних сторінок. -->
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Доставка</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оплата</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Навігація: Компанія -->
+            <nav aria-label="Компанія" class="space-y-4">
+                <h2 class="text-base font-semibold text-white">Компанія</h2>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <li><a href="about.html" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Про нас</a></li>
+                    <li><a href="contacts.html" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Контакти</a></li>
+                    <!-- TODO: додати сторінку оферти. -->
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оферта</a></li>
+                </ul>
+            </nav>
+
+            <!-- <form>: форма підписки на розсилку -->
+            <form class="space-y-3">
+                <h2 class="text-base font-semibold text-white">Підписка на новини та знижки</h2>
+                <p class="text-gray-400 text-xs leading-relaxed">Дізнавайтесь першими про нові ігри та спеціальні пропозиції боксів.</p>
+                <div class="space-y-2">
+                    <label for="footer-email" class="sr-only">Ваш email</label>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" id="footer-email" placeholder="Ваш email..." aria-label="Ваш email" class="w-full px-3.5 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534] transition duration-200" required>
+                        <button type="submit" class="bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] text-white font-semibold text-sm px-4 py-2.5 rounded-lg transition duration-200 inline-flex items-center justify-center gap-2 shrink-0 focus:outline-none focus:ring-2 focus:ring-red-400">
+                            Підписатися
+                            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-[11px] text-gray-500 leading-tight">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних.</p>
+            </form>
+
+        </div>
+
+        <!-- Нижня частина: копірайт та юридичні посилання -->
+        <div class="pt-6 border-t border-gray-800 text-center md:flex md:justify-between md:items-center text-xs text-gray-500">
+            <p class="mb-3 md:mb-0">© 2025 Кубики &amp; Карти. Всі права захищено.</p>
+            <nav class="flex justify-center items-center gap-2" aria-label="Юридична інформація">
+                <!-- TODO: додати сторінки політики конфіденційності та умов використання. -->
+                <a href="#" class="hover:text-gray-300 transition focus:outline-none focus:underline">Політика конфіденційності</a>
+                <span class="text-gray-600" aria-hidden="true">•</span>
+                <a href="#" class="hover:text-gray-300 transition focus:outline-none focus:underline">Умови використання</a>
+            </nav>
+        </div>
+
+    </div>
+</footer>
+    <!-- Модальне вікно успіху -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-opacity" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+        <div id="modalCard" class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center transform transition-all scale-95 duration-200">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+            </div>
+            <h3 id="modalTitle" class="text-xl font-bold text-[#1A1D20] mb-2 font-[Raleway]">Успішно надіслано!</h3>
+            <p id="modalDesc" class="text-sm text-gray-600 mb-6">
+                Форма успішно пройшла клієнтську валідацію. Демонстрація успішного надсилання повідомлення.
+            </p>
+            <button id="modalCloseBtn" type="button" class="w-full py-3 px-4 bg-[#D92534] hover:bg-[#b51d2a] text-white font-semibold rounded-xl transition focus:outline-none focus:ring-2 focus:ring-red-400">
+                Зрозуміло
+            </button>
+        </div>
+    </div>
+
+    <!-- Підключення скрипта валідації -->
+    <script src="assets/js/validation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кубики & Карти - Головна</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- <header>: навігаційний блок, важливий для SEO та скрінрідерів -->
+   
+<header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+        
+        <!-- Логотип -->
+        <div class="logo">
+            <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg">
+                <img src="assets/images/logo_1.svg" alt="Кубики & Карти" class="h-8 w-auto object-contain">
+            </a>
+        </div>
+
+        <!-- Меню навігації -->
+        <nav class="menu order-3 lg:order-2 w-full lg:w-auto overflow-x-auto py-1">
+            <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max">
+                <li><a href="index.html" class="active text-[#D92534] font-semibold pb-1 border-b-2 border-[#D92534] transition" aria-current="page">Головна сторінка</a></li>
+                <li><a href="about.html" class="hover:text-black transition px-2 lg:px-0">Про сервіс</a></li>
+                <li><a href="contacts.html" class="hover:text-black transition px-2 lg:px-0">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <!-- Кнопки дій -->
+        <div class="flex items-center gap-2 order-2 lg:order-3">
+            <button class="btn-login px-4 py-2 text-sm font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
+            <button class="btn-quiz px-4 py-2 text-sm font-semibold text-white bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] rounded-xl transition shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400" type="button">Пройти квіз</button>
+        </div>
+
+    </div>
+</header>
+
+    <!-- <main>: основний вміст сторінки -->
+    <main>
+        <!-- <section>: головний екран (Hero) -->
+        <section class="hero">
+            <picture>
+                <source srcset="assets/images/hero.webp" type="image/webp">
+                <img src="assets/images/hero.jpg" alt="Ідеальний вечір у колі друзів за настільною грою">
+            </picture>
+            <h1>Ідеальні вечори у колі друзів</h1>
+            <p>Персональний підбір ігор для  друзів з AI-підбором</p>
+            <button class="bg-[#D92534] text-white font-semibold text-base px-6 py-3 rounded-lg min-h-[44px] transition duration-200 hover:bg-[#b51d2a] active:bg-[#961521] disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-400">
+  Підібрати гру через квиз</button>
+        </section>
+
+        <!-- <section>: інтерактивний квіз -->
+        <section class="quiz">
+            <h2>Інтерактивний квіз</h2>
+            <form class="quiz-form">
+                <fieldset class="options">
+                    <legend class="question">Скільки людей буде грати?</legend>
+                    <label class="option">
+                        <input type="radio" name="quiz-answer" value="1">
+                        1 особа
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="quiz-answer" value="2-3">
+                        2-3 особи
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="quiz-answer" value="4-5">
+                        4-5 осіб
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="quiz-answer" value="6+">
+                        6+ осіб
+                    </label>
+                </fieldset>
+                <div class="nav-buttons">
+                    <button class="btn-prev" type="button">Назад</button>
+                    <button class="btn-next" type="button">Далі <i class="icon icon-inverse fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </form>
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Прогрес квізу">
+                <div class="progress" style="width: 0%;"></div>
+            </div>
+        </section>
+
+       <!-- <section>: каталог ігор -->
+<section class="max-w-7xl mx-auto px-4 py-8">
+  <h2 class="text-[#1A1D20] text-xl md:text-2xl font-bold text-center mb-8">
+    Популярні ігри
+  </h2>
+
+  <!-- Адаптивна сітка: 1 колонка на мобільних, 2 на планшетах, 4 на десктопі -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Картка 1: Катан -->
+    <article class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+      <img src="assets/images/catan.jpg" alt="Обкладинка гри Катан" class="w-full h-48 object-cover rounded-t-2xl">
+      <div class="p-5 flex flex-col flex-grow">
+        <h3 class="text-lg font-bold text-[#1A1D20] mb-2">Катан</h3>
+        <div class="flex items-center gap-4 text-xs text-gray-500 mb-6">
+          <span>Гравці: 3-4</span>
+          <span>Час: 60-120 хв</span>
+        </div>
+        <button type="button" class="mt-auto w-full bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] text-white font-semibold text-sm py-3 px-4 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400">
+          Отримати гру
+        </button>
+      </div>
+    </article>
+
+    <!-- Картка 2: Доміно -->
+    <article class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+      <img src="assets/images/domino.jpg" alt="Обкладинка гри Доміно" class="w-full h-48 object-cover rounded-t-2xl">
+      <div class="p-5 flex flex-col flex-grow">
+        <h3 class="text-lg font-bold text-[#1A1D20] mb-2">Доміно</h3>
+        <div class="flex items-center gap-4 text-xs text-gray-500 mb-6">
+          <span>Гравці: 2-4</span>
+          <span>Час: 15-30 хв</span>
+        </div>
+        <button type="button" class="mt-auto w-full bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] text-white font-semibold text-sm py-3 px-4 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400">
+          Отримати гру
+        </button>
+      </div>
+    </article>
+
+    <!-- Картка 3: Каркассон -->
+    <article class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+      <img src="assets/images/carcassonne.jpg" alt="Обкладинка гри Каркассон" class="w-full h-48 object-cover rounded-t-2xl">
+      <div class="p-5 flex flex-col flex-grow">
+        <h3 class="text-lg font-bold text-[#1A1D20] mb-2">Каркассон</h3>
+        <div class="flex items-center gap-4 text-xs text-gray-500 mb-6">
+          <span>Гравці: 2-5</span>
+          <span>Час: 30-45 хв</span>
+        </div>
+        <button type="button" class="mt-auto w-full bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] text-white font-semibold text-sm py-3 px-4 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400">
+          Отримати гру
+        </button>
+      </div>
+    </article>
+
+    <!-- Картка 4: Мафія -->
+    <article class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+      <img src="assets/images/mafia.jpg" alt="Обкладинка гри Мафія" class="w-full h-48 object-cover rounded-t-2xl">
+      <div class="p-5 flex flex-col flex-grow">
+        <h3 class="text-lg font-bold text-[#1A1D20] mb-2">Мафія</h3>
+        <div class="flex items-center gap-4 text-xs text-gray-500 mb-6">
+          <span>Гравці: 2-6</span>
+          <span>Час: 60-90 хв</span>
+        </div>
+        <button type="button" class="mt-auto w-full bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] text-white font-semibold text-sm py-3 px-4 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400">
+          Отримати гру
+        </button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+        <!-- <section>: блок переваг -->
+        <section class="benefits">
+            <h2>Наші переваги</h2>
+            <div class="benefits-grid">
+                <article class="benefit-card">
+                    <span class="benefit-icon"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></span>
+                    <h3>Швидка доставка</h3>
+                    <p>Отримайте гру за 1-2 дні по всій Україні.</p>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-icon"><i class="fas fa-brain" aria-hidden="true"></i></span>
+                    <h3>Точність підбору 98%</h3>
+                    <p>Наш алгоритм знаходить ігри, які точно відповідають вашим вподобанням.</p>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-icon"><i class="fas fa-box-open" aria-hidden="true"></i></span>
+                    <h3>Ексклюзивні бокси</h3>
+                    <p>Отримайте доступ до видань і доповнень.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+  <!-- <footer>: підвал сайту -->
+<footer class="bg-[#1A1D20] text-white pt-12 pb-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <!-- Верхня частина: основна сітка футера -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            
+            <!-- Брендинг та соціальні мережі -->
+            <div class="space-y-4">
+                <a class="inline-flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg" href="index.html" aria-label="Кубики & Карти — на головну">
+                    <svg class="w-8 h-8 text-[#D92534] shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+                        <circle cx="16" cy="8" r="1.5" fill="currentColor"/>
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                        <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
+                        <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold tracking-tight text-white group-hover:text-gray-200 transition">Кубики &amp; Карти</span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">Розумна підписка на настільні ігри</p>
+                <div class="flex items-center gap-3 pt-1" aria-label="Соціальні мережі">
+                    <!-- TODO: додати справжні посилання на соцмережі. -->
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-sm" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-sm" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Telegram">
+                        <i class="fa-brands fa-telegram text-sm" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Навігація: Клієнтам -->
+            <nav aria-label="Клієнтам" class="space-y-4">
+                <h2 class="text-base font-semibold text-white">Клієнтам</h2>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <!-- TODO: додати маршрути для інформаційних сторінок. -->
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Доставка</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оплата</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Навігація: Компанія -->
+            <nav aria-label="Компанія" class="space-y-4">
+                <h2 class="text-base font-semibold text-white">Компанія</h2>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <li><a href="about.html" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Про нас</a></li>
+                    <li><a href="contacts.html" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Контакти</a></li>
+                    <!-- TODO: додати сторінку оферти. -->
+                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оферта</a></li>
+                </ul>
+            </nav>
+
+            <!-- <form>: форма підписки на розсилку -->
+            <form class="space-y-3">
+                <h2 class="text-base font-semibold text-white">Підписка на новини та знижки</h2>
+                <p class="text-gray-400 text-xs leading-relaxed">Дізнавайтесь першими про нові ігри та спеціальні пропозиції боксів.</p>
+                <div class="space-y-2">
+                    <label for="footer-email" class="sr-only">Ваш email</label>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" id="footer-email" placeholder="Ваш email..." aria-label="Ваш email" class="w-full px-3.5 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534] transition duration-200" required>
+                        <button type="submit" class="bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] text-white font-semibold text-sm px-4 py-2.5 rounded-lg transition duration-200 inline-flex items-center justify-center gap-2 shrink-0 focus:outline-none focus:ring-2 focus:ring-red-400">
+                            Підписатися
+                            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-[11px] text-gray-500 leading-tight">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних.</p>
+            </form>
+
+        </div>
+
+        <!-- Нижня частина: копірайт та юридичні посилання -->
+        <div class="pt-6 border-t border-gray-800 text-center md:flex md:justify-between md:items-center text-xs text-gray-500">
+            <p class="mb-3 md:mb-0">© 2025 Кубики &amp; Карти. Всі права захищено.</p>
+            <nav class="flex justify-center items-center gap-2" aria-label="Юридична інформація">
+                <!-- TODO: додати сторінки політики конфіденційності та умов використання. -->
+                <a href="#" class="hover:text-gray-300 transition focus:outline-none focus:underline">Політика конфіденційності</a>
+                <span class="text-gray-600" aria-hidden="true">•</span>
+                <a href="#" class="hover:text-gray-300 transition focus:outline-none focus:underline">Умови використання</a>
+            </nav>
+        </div>
+
+    </div>
+</footer>
+</body>
+</html>
