@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="about-page">
 <header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         <div class="logo">
             <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg">
                 <img src="assets/images/logo_1.svg" alt="Кубики & Карти" class="h-8 w-auto object-contain">
@@ -27,7 +28,7 @@
             </ul>
         </nav>
         <div class="flex items-center gap-2 order-2 lg:order-3">
-            <button class="btn-login px-4 py-2 text-sm font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
+            <button class="btn-login px-6 py-2 text-base font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
             <button class="btn-quiz px-4 py-2 text-sm font-semibold text-white bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] rounded-xl transition shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400" type="button">Пройти квіз</button>
         </div>
     </div>
@@ -58,26 +59,132 @@
             </ol>
         </section>
 
-            <section>
-                <h2 class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6">Відгуки наших гравців</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="bg-white rounded-2xl shadow-md p-6">
-                        <h3 class="font-[Raleway] text-lg font-bold text-[#1A1D20]">Олександр, 28 років</h3>
-                        <div class="mt-2 text-amber-400" aria-label="Оцінка 5 з 5">⭐⭐⭐⭐⭐</div>
-                        <p class="mt-3 text-[#1A1D20]">"Квиз допомог знайти гру, яка досить точно підійшла для нашої компанії. Ми провели вечір з смехом та стратегічним плануванням. Дуже рекомендую!"</p>
-                </article>
-                    <article class="bg-white rounded-2xl shadow-md p-6">
-                        <h3 class="font-[Raleway] text-lg font-bold text-[#1A1D20]">Марія, 34 роки</h3>
-                        <div class="mt-2 text-amber-400" aria-label="Оцінка 4 з 5">⭐⭐⭐⭐</div>
-                        <p class="mt-3 text-[#1A1D20]">"Сервіс зручний і швидкий. Отримали бокс з новою грою, якій ще не грали. Сімейний вечір пройшов на висоті!"</p>
-                </article>
-                    <article class="bg-white rounded-2xl shadow-md p-6">
-                        <h3 class="font-[Raleway] text-lg font-bold text-[#1A1D20]">Дмитро, 22 роки</h3>
-                        <div class="mt-2 text-amber-400" aria-label="Оцінка 5 з 5">⭐⭐⭐⭐⭐</div>
-                        <p class="mt-3 text-[#1A1D20]">"Колишаюсь з друзьями квизом раз на місяць. Завжди отримуємо нові та цікаві пропозиції. Дякую за вашу роботу!"</p>
-                </article>
+         
+
+<!-- <section>: слайдер відгуків (Swiper.js) -->
+<section aria-labelledby="reviews-title">
+    <h2 id="reviews-title" class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6">Відгуки наших гравців</h2>
+
+    <div class="relative md:px-12">
+        <div class="swiper reviews-swiper pt-2 pb-12" style="--swiper-theme-color: #D92534;">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide !h-auto">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Квіз допоміг знайти гру, яка ідеально підійшла для нашої компанії. Ми провели вечір зі сміхом та стратегічним плануванням.»</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">О</span>
+                            <div>
+                                <h3 class="font-bold text-[#1A1D20] text-sm">Олександр</h3>
+                                <p class="text-xs text-gray-500">28 років, Київ</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide !h-auto">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 4 з 5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Сервіс зручний і швидкий. Отримали бокс з новою грою, якої ще не грали. Сімейний вечір пройшов на висоті!»</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">М</span>
+                            <div>
+                                <h3 class="font-bold text-[#1A1D20] text-sm">Марія</h3>
+                                <p class="text-xs text-gray-500">34 роки, Львів</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide !h-auto">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Граємо з друзями раз на місяць. Щоразу отримуємо нові та цікаві пропозиції. Дякую за вашу роботу!»</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">Д</span>
+                            <div>
+                                <h3 class="font-bold text-[#1A1D20] text-sm">Дмитро</h3>
+                                <p class="text-xs text-gray-500">22 роки, Одеса</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide !h-auto">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Каркассон з боксу став улюбленою грою на вихідні. Правила пояснили так просто, що навіть діти зрозуміли з першого разу.»</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">І</span>
+                            <div>
+                                <h3 class="font-bold text-[#1A1D20] text-sm">Ірина</h3>
+                                <p class="text-xs text-gray-500">41 рік, Харків</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide !h-auto">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 4 з 5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Для вечірок з великою компанією підібрали Мафію з доповненнями. Усі залишились у захваті, повторимо наступного місяця.»</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">А</span>
+                            <div>
+                                <h3 class="font-bold text-[#1A1D20] text-sm">Андрій</h3>
+                                <p class="text-xs text-gray-500">26 років, Дніпро</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide !h-auto">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Доставили за два дні, упаковка акуратна. Катан для нас із чоловіком виявився саме тим, що шукали для вечорів удвох.»</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">С</span>
+                            <div>
+                                <h3 class="font-bold text-[#1A1D20] text-sm">Софія</h3>
+                                <p class="text-xs text-gray-500">31 рік, Вінниця</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
             </div>
-        </section>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-button-prev" aria-label="Попередній відгук"></div>
+        <div class="swiper-button-next" aria-label="Наступний відгук"></div>
+    </div>
+</section>
         </div>
     </main>
 
@@ -157,5 +264,7 @@
         </div>
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
