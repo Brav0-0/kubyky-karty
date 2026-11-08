@@ -54,8 +54,15 @@
             </picture>
             <h1>Ідеальні вечори у колі друзів</h1>
             <p><span id="typed-text">Персональний підбір ігор для друзів з AI-підбором</span></p>
+            <div class="flex flex-wrap items-center gap-3 [grid-area:cta]">
             <button class="bg-[#D92534] text-white font-semibold text-base px-6 py-3 rounded-lg min-h-[44px] transition duration-200 hover:bg-[#b51d2a] active:bg-[#961521] disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-400">
   Підібрати гру через квиз</button>
+   <button type="button" id="open-subscription"
+        class="border-2 border-[#D92534] bg-white text-[#D92534] hover:bg-[#FDECEE] font-semibold text-base px-6 py-3 rounded-lg min-h-[44px] transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400"
+        aria-haspopup="dialog" aria-controls="subscription-dialog">
+        Розрахувати підписку
+    </button>
+</div>
         </section>
 
         <!-- <section>: інтерактивний квіз -->
@@ -304,9 +311,95 @@
 
     </div>
 </footer>
+<dialog id="subscription-dialog" aria-labelledby="subscription-title"
+    class="m-auto w-[calc(100%-2rem)] max-w-lg rounded-2xl p-0 shadow-2xl backdrop:bg-black/50">
+    <div class="p-6 md:p-8">
+ 
+        <div class="flex items-start justify-between gap-4 mb-6">
+            <div>
+                <h2 id="subscription-title" class="text-xl md:text-2xl font-bold text-[#1A1D20]">Калькулятор підписки</h2>
+                <p class="text-sm text-gray-500 mt-1">Оберіть параметри, і ми одразу порахуємо вартість.</p>
+            </div>
+            <button type="button" id="close-subscription"
+                class="shrink-0 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-red-400"
+                aria-label="Закрити калькулятор">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+ 
+        <form id="subscription-form" class="space-y-5" novalidate>
+ 
+            <!-- Кількість місяців -->
+            <div class="space-y-1">
+                <label for="sub-months" class="block font-medium text-[#1A1D20]">Кількість місяців</label>
+                <input type="number" id="sub-months" name="months" value="3"
+    min="1" max="36" step="1" inputmode="numeric"
+    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]"
+    aria-describedby="error-months" aria-invalid="false">
+                <p id="error-months" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert"></p>
+            </div>
+ 
+            <!-- Тип боксу -->
+            <div class="space-y-1">
+                <label for="sub-box" class="block font-medium text-[#1A1D20]">Тип боксу</label>
+                <select id="sub-box" name="box"
+                    class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[#1A1D20] transition focus:outline-none focus:border-[#D92534] focus:ring-1 focus:ring-[#D92534]">
+                    <option value="family">Сімейний, 500 грн/міс</option>
+                    <option value="party">Для вечірок, 650 грн/міс</option>
+                    <option value="hardcore">Хардкор, 800 грн/міс</option>
+                </select>
+            </div>
+ 
+            <!-- Опції -->
+            <div class="space-y-3">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" id="sub-express" name="express"
+                        class="mt-1 h-4 w-4 rounded border-gray-300 cursor-pointer" style="accent-color:#D92534">
+                    <span class="text-[#1A1D20]">Експрес-доставка <span class="text-gray-500">(+100 грн/міс)</span></span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" id="sub-gift" name="gift"
+                        class="mt-1 h-4 w-4 rounded border-gray-300 cursor-pointer" style="accent-color:#D92534">
+                    <span class="text-[#1A1D20]">Подарункове пакування <span class="text-gray-500">(+150 грн одноразово)</span></span>
+                </label>
+            </div>
+ 
+            <!-- Результат -->
+            <div class="rounded-xl bg-[#EDF0F4] p-4" role="status" aria-live="polite">
+                <p class="text-sm text-gray-600">Щомісяця: <span id="sub-monthly" class="font-semibold text-[#1A1D20]">0 грн</span></p>
+                <p class="mt-1 text-[#1A1D20]">Разом: <span id="sub-total" class="text-2xl font-bold text-[#D92534]">0 грн</span></p>
+                <p class="mt-1 text-xs text-gray-500">Від 6 місяців діє знижка 10% на підписку.</p>
+            </div>
+ 
+            <button type="submit" id="sub-submit"
+                class="min-h-[44px] w-full rounded-xl bg-[#D92534] px-4 py-3 font-semibold text-white transition hover:bg-[#b51d2a] active:bg-[#961521] focus:outline-none focus:ring-2 focus:ring-red-400">
+                Оформити підписку
+            </button>
+            <p id="sub-status" class="text-sm font-medium text-emerald-700" role="status"></p>
+        </form>
+    </div>
+</dialog>
+<!-- Модальне вікно успішного оформлення підписки -->
+<div id="subSuccessModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+     role="dialog" aria-modal="true" aria-labelledby="subModalTitle" aria-describedby="subModalDesc">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+        </div>
+        <h3 id="subModalTitle" class="text-xl font-bold text-[#1A1D20] mb-2 font-[Raleway]">Підписку оформлено!</h3>
+        <p id="subModalDesc" class="text-sm text-gray-600 mb-6">
+            Дякуємо! Підписку оформлено на суму <strong id="subModalSum">0 грн</strong>.
+        </p>
+        <button id="subModalCloseBtn" type="button"
+            class="w-full py-3 px-4 bg-[#D92534] hover:bg-[#b51d2a] text-white font-semibold rounded-xl transition focus:outline-none focus:ring-2 focus:ring-red-400">
+            Зрозуміло
+        </button>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/widget.js" defer></script>
 </body>
 </html>
