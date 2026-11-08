@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -51,7 +53,7 @@
                 <img src="assets/images/hero.jpg" alt="Ідеальний вечір у колі друзів за настільною грою">
             </picture>
             <h1>Ідеальні вечори у колі друзів</h1>
-            <p>Персональний підбір ігор для  друзів з AI-підбором</p>
+            <p><span id="typed-text">Персональний підбір ігор для друзів з AI-підбором</span></p>
             <button class="bg-[#D92534] text-white font-semibold text-base px-6 py-3 rounded-lg min-h-[44px] transition duration-200 hover:bg-[#b51d2a] active:bg-[#961521] disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-400">
   Підібрати гру через квиз</button>
         </section>
@@ -100,7 +102,7 @@
 
     <!-- Картка 1: Катан -->
     <article class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
-      <img src="assets/images/catan.jpg" alt="Обкладинка гри Катан" class="w-full h-48 object-cover rounded-t-2xl">
+      <img src="assets/images/Catan.jpg" alt="Обкладинка гри Катан" class="w-full h-48 object-cover rounded-t-2xl">
       <div class="p-5 flex flex-col flex-grow">
         <h3 class="text-lg font-bold text-[#1A1D20] mb-2">Катан</h3>
         <div class="flex items-center gap-4 text-xs text-gray-500 mb-6">
@@ -158,6 +160,33 @@
       </div>
     </article>
 
+  </div>
+</section>
+<!-- <section>: слайдер відгуків (Swiper.js) -->
+
+ 
+<!-- <section>: галерея зображень (Fancybox v5) -->
+<section class="max-w-7xl mx-auto px-4 py-12" aria-labelledby="gallery-title">
+  <h2 id="gallery-title" class="text-[#1A1D20] text-xl md:text-2xl font-bold text-center mb-8">
+    Галерея ігор
+  </h2>
+ 
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <a href="assets/images/Catan.jpg" data-fancybox="games-gallery" data-caption="Катан">
+      <img src="assets/images/Catan.jpg" alt="Настільна гра Катан" loading="lazy" class="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.03] transition duration-300 cursor-zoom-in">
+    </a>
+    <a href="assets/images/domino.jpg" data-fancybox="games-gallery" data-caption="Доміно">
+      <img src="assets/images/domino.jpg" alt="Настільна гра Доміно" loading="lazy" class="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.03] transition duration-300 cursor-zoom-in">
+    </a>
+    <a href="assets/images/carcassonne.jpg" data-fancybox="games-gallery" data-caption="Каркассон">
+      <img src="assets/images/carcassonne.jpg" alt="Настільна гра Каркассон" loading="lazy" class="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.03] transition duration-300 cursor-zoom-in">
+    </a>
+    <a href="assets/images/mafia.jpg" data-fancybox="games-gallery" data-caption="Мафія">
+      <img src="assets/images/mafia.jpg" alt="Настільна гра Мафія" loading="lazy" class="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.03] transition duration-300 cursor-zoom-in">
+    </a>
+    <a href="assets/images/hero.webp" data-fancybox="games-gallery" data-caption="Вечір у колі друзів">
+      <img src="assets/images/hero.webp" alt="Вечір у колі друзів за настільною грою" loading="lazy" class="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.03] transition duration-300 cursor-zoom-in">
+    </a>
   </div>
 </section>
 
@@ -275,5 +304,9 @@
 
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
