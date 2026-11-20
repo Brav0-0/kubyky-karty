@@ -11,7 +11,7 @@
   const form = document.getElementById('subscription-form');
 
   const monthsInput = document.getElementById('sub-months');
-  const boxSelect = document.getElementById('sub-box');
+  const boxGroup = document.getElementById('sub-box'); // fieldset з трьома radio-кнопками
   const expressCheckbox = document.getElementById('sub-express');
   const giftCheckbox = document.getElementById('sub-gift');
 
@@ -27,7 +27,7 @@
 
   // Захист від відсутніх DOM-елементів: віджет просто не запускається, сторінка не падає
   const required = {
-    dialog, openBtn, closeBtn, form, monthsInput, boxSelect, expressCheckbox,
+    dialog, openBtn, closeBtn, form, monthsInput, boxGroup, expressCheckbox,
     giftCheckbox, monthlyEl, totalEl, errorMonths, submitBtn,
     subModal, subModalSum, subModalClose
   };
@@ -77,16 +77,23 @@
     return isValid;
   }
 
+  // Значення обраної кнопки боксу ('' якщо нічого не обрано)
+  function getBoxValue() {
+    const checked = boxGroup.querySelector('input[name="box"]:checked');
+    return checked ? checked.value : '';
+  }
+
   // ---------- Розрахунок ----------
   function calculate() {
-    if (!validateMonths() || !Object.prototype.hasOwnProperty.call(BOX_PRICES, boxSelect.value)) {
+    const boxValue = getBoxValue();
+    if (!validateMonths() || !Object.prototype.hasOwnProperty.call(BOX_PRICES, boxValue)) {
       monthlyEl.textContent = '0 грн';
       totalEl.textContent = '0 грн';
       return false;
     }
 
     const months = parseInt(monthsInput.value, 10);
-    const boxPrice = BOX_PRICES[boxSelect.value];
+    const boxPrice = BOX_PRICES[boxValue];
     const express = expressCheckbox.checked ? EXPRESS_PRICE : 0;
     const gift = giftCheckbox.checked ? GIFT_PRICE : 0;
 
@@ -120,7 +127,7 @@
 
   // Автоматичний перерахунок при будь-якій зміні
   monthsInput.addEventListener('input', calculate);
-  boxSelect.addEventListener('change', calculate);
+  boxGroup.addEventListener('change', calculate); // подія change від radio спливає до fieldset
   expressCheckbox.addEventListener('change', calculate);
   giftCheckbox.addEventListener('change', calculate);
 
