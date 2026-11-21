@@ -485,6 +485,8 @@ body:not(.about-page):not(.contacts-page) .navbar .btn-quiz:hover {
 .hero p {
     font-size: var(--fs-lg);
     font-weight: var(--fw-medium);
+    /* Typed.js друкує й стирає текст: резервуємо 2 рядки, щоб кнопки під ним не стрибали (CLS) */
+    min-height: calc(2 * var(--lh-base) * 1em);
 }
 .hero picture img,
 .hero > img {

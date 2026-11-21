@@ -98,12 +98,13 @@
     }
   });
 
-  // Очищаємо вставлений текст від усього, крім цифр
-  monthsInput.addEventListener('paste', function (e) {
-    e.preventDefault();
-    const text = (e.clipboardData || window.clipboardData).getData('text');
-    monthsInput.value = text.replace(/\D/g, '');
-    calculate();
+  // Вставку не забороняємо (це погіршує доступність і блокує менеджери паролів — зауваження Lighthouse),
+  // а одразу після неї очищаємо значення від усього, крім цифр
+  monthsInput.addEventListener('paste', function () {
+    setTimeout(function () {
+      monthsInput.value = monthsInput.value.replace(/\D/g, '');
+      calculate();
+    }, 0);
   });
 
   // Автоматичний перерахунок при будь-якій зміні

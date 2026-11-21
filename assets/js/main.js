@@ -1,6 +1,12 @@
 // Ініціалізація JS-бібліотек, підключених через CDN (Swiper, Fancybox, Typed.js)
 document.addEventListener('DOMContentLoaded', function () {
 
+  // 0. Некритичні стилі (наприклад, Fancybox — потрібен лише після кліку на фото) завантажуються
+  //    з media="print", щоб не блокувати першу відмальовку; тут вмикаємо їх для екрана.
+  document.querySelectorAll('link[data-async-css]').forEach(function (link) {
+    link.media = 'all';
+  });
+
   // 1. Typed.js: ефект друкування тексту в Hero-блоці
   if (document.querySelector('#typed-text') && typeof Typed !== 'undefined') {
     new Typed('#typed-text', {

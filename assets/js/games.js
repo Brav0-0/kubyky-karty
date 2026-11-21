@@ -14,28 +14,28 @@ window.KubykyGames = (function () {
     {
       id: 'catan', name: 'Катан', price: 1650, box: 'hardcore',
       players: '3–4', duration: '60–120 хв', age: '10+',
-      image: 'assets/images/Catan.jpg',
+      image: 'assets/images/catan',
       text: 'Освоюйте острів: будуйте дороги й поселення, торгуйте ресурсами з іншими гравцями та першими наберіть 10 очок перемоги.',
       tags: { players: [2], company: ['hardcore', 'family'], time: ['long'], mood: ['strategy'] }
     },
     {
       id: 'domino', name: 'Доміно', price: 350, box: 'family',
       players: '2–4', duration: '15–30 хв', age: '6+',
-      image: 'assets/images/domino.jpg',
+      image: 'assets/images/domino',
       text: 'Класична гра з кістками: прикладайте плитки з однаковою кількістю точок і позбудьтеся своїх першим.',
       tags: { players: [1], company: ['couple', 'family'], time: ['short'], mood: ['easy'] }
     },
     {
       id: 'carcassonne', name: 'Каркассон', price: 1100, box: 'family',
       players: '2–5', duration: '30–45 хв', age: '7+',
-      image: 'assets/images/carcassonne.jpg',
+      image: 'assets/images/carcassonne',
       text: 'Викладайте тайли й разом будуйте середньовічну Францію: міста, дороги та монастирі, займаючи їх своїми мiплами.',
       tags: { players: [2, 3], company: ['family'], time: ['medium'], mood: ['easy', 'strategy'] }
     },
     {
       id: 'mafia', name: 'Мафія', price: 300, box: 'party',
       players: '6–15', duration: '30–60 хв', age: '14+',
-      image: 'assets/images/mafia.jpg',
+      image: 'assets/images/mafia',
       text: 'Рольова гра на блеф і дедукцію: мирні жителі шукають мафію, а мафія намагається не видати себе до ранку.',
       tags: { players: [4], company: ['party'], time: ['medium'], mood: ['fun'] }
     },
@@ -83,11 +83,13 @@ window.KubykyGames = (function () {
     }
   ];
 
-  // Розмір картинки: для фото з Unsplash просимо потрібну ширину, локальні фото як є
+  // Розмір картинки: Unsplash віддає потрібну ширину у WebP/AVIF (auto=format),
+  // для локальних фото є дві WebP-версії: мініатюра -400 і повна -full
   function imageUrl(game, width) {
-    return game.image.indexOf(U) === 0
-      ? game.image + '?w=' + width + '&q=75&fit=crop'
-      : game.image;
+    if (game.image.indexOf(U) === 0) {
+      return game.image + '?w=' + width + '&q=70&fit=crop&auto=format';
+    }
+    return game.image + (width <= 600 ? '-400.webp' : '-full.webp');
   }
 
   function byId(id) {

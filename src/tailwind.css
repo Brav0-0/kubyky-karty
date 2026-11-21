@@ -1,0 +1,4 @@
+/* Вхідний файл Tailwind CSS. Результат збірки: css/tailwind.css (npm run build:css) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

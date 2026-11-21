@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /checkout.html
+
+Sitemap: https://kubyky-karty.vercel.app/sitemap.xml
