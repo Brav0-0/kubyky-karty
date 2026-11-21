@@ -73,6 +73,14 @@
     --transition-base: 250ms ease;
 }
 
+/* Font Awesome підвантажується без блокування відображення: резервуємо місце під іконку,
+   щоб текст поруч не зсувався, коли шрифт іконок з'явиться (CLS) */
+i[class*="fa-"] {
+    display: inline-block;
+    min-width: 1em;
+    text-align: center;
+}
+
 /* Атрибут hidden завжди ховає елемент (навіть якщо клас задає display: grid/flex) */
 [hidden] {
     display: none !important;
