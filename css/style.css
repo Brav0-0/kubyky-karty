@@ -1132,6 +1132,15 @@ body:not(.about-page):not(.contacts-page) .navbar .btn-quiz:hover {
         overflow: visible;
     }
 }
+/* Мобільне меню: 4 пункти ширші за екран, тому меню прокручується всередині себе,
+   а не розширює всю сторінку (flex-елемент за замовчуванням не стискається нижче вмісту) */
+@media (max-width: 1023px) {
+    header.navbar > div,
+    header.navbar .menu {
+        min-width: 0;
+        max-width: 100%;
+    }
+}
 /* 6. Pages (specific overrides if needed) */
 /* Already covered above */
 

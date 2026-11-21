@@ -73,7 +73,7 @@
     const qtyInput = document.getElementById('sum-qty');
     let qty = 1;
 
-    document.title = 'Кубики & Карти - Купівля гри ' + g.name;
+    document.title = 'Купівля гри ' + g.name + ' — Кубики & Карти';
     setText('co-title', 'Купівля гри «' + g.name + '»');
     setText('co-back-text', 'Повернутися до каталогу');
     document.getElementById('co-back').href = 'index.html#catalog';
