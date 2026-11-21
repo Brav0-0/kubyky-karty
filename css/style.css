@@ -73,6 +73,20 @@
     --transition-base: 250ms ease;
 }
 
+/* Атрибут hidden завжди ховає елемент (навіть якщо клас задає display: grid/flex) */
+[hidden] {
+    display: none !important;
+}
+
+/* Reset нижче прибирає рамку в полів і кнопок (border: none), тому для елементів
+   з класом Tailwind .border повертаємо суцільну лінію, інакше рамки не видно */
+input.border,
+select.border,
+textarea.border,
+button.border {
+    border-style: solid;
+}
+
 /* 2. Reset */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -478,6 +492,57 @@ body:not(.about-page):not(.contacts-page) .navbar .btn-quiz:hover {
     border-radius: var(--radius-lg);
     object-fit: cover;
     max-height: 420px;
+}
+
+/* Hero: фон секції підібрано під світло-сірий фон фото, а краї фото плавно розчиняються,
+   тож немає видимої «рамки» між картинкою та блоком */
+.hero {
+    --hero-bg: #F5F5F5;
+    background-color: var(--hero-bg);
+    overflow: hidden;
+}
+.hero picture img,
+.hero > img {
+    border-radius: 0;
+    object-position: 70% center;
+    /* дві маски (по горизонталі та вертикалі) перетинаються: усі 4 краї фото згасають */
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, #000 22%, #000 85%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent 0%, #000 22%, #000 85%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    mask-composite: intersect;
+}
+@media (min-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr 1.25fr;
+        align-items: center;
+    }
+    .hero picture {
+        align-self: center;
+    }
+    .hero picture img {
+        max-height: 460px;
+    }
+}
+@media (max-width: 767px) {
+    .hero picture,
+    .hero > img {
+        border-radius: 0;
+    }
+    /* на телефоні обрізаємо порожню ліву частину фото, щоб бокс був більшим */
+    .hero picture img {
+        aspect-ratio: 4 / 3;
+        object-position: 78% center;
+        -webkit-mask-image:
+            linear-gradient(to right, transparent 0%, #000 25%, #000 96%, transparent 100%),
+            linear-gradient(to bottom, transparent 0%, #000 12%, #000 90%, transparent 100%);
+        mask-image:
+            linear-gradient(to right, transparent 0%, #000 25%, #000 96%, transparent 100%),
+            linear-gradient(to bottom, transparent 0%, #000 12%, #000 90%, transparent 100%);
+    }
 }
 
 /* Games grid */

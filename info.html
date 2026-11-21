@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кубики & Карти - Інформація для клієнтів</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="contacts-page">
+<header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+        <div class="logo">
+            <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg">
+                <img src="assets/images/logo_1.svg" alt="Кубики & Карти" class="h-10 w-auto object-contain">
+            </a>
+        </div>
+        <nav class="menu order-3 lg:order-2 w-full lg:w-auto overflow-x-auto py-1">
+            <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max">
+                <li><a href="index.html" class="hover:text-black transition px-2 lg:px-0">Головна сторінка</a></li>
+                <li><a href="catalog.html" class="hover:text-black transition px-2 lg:px-0">Каталог</a></li>
+                <li><a href="about.html" class="hover:text-black transition px-2 lg:px-0">Про сервіс</a></li>
+                <li><a href="contacts.html" class="hover:text-black transition px-2 lg:px-0">Контакти</a></li>
+            </ul>
+        </nav>
+        <div class="flex items-center gap-2 order-2 lg:order-3">
+            <button class="btn-login px-6 py-2 text-base font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
+            <button class="btn-quiz px-6 py-2 text-base font-semibold text-white bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] rounded-xl transition shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400" type="button">Пройти квіз</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="max-w-4xl mx-auto px-4 py-8 md:py-12">
+        <h1 class="font-[Raleway] text-2xl md:text-3xl font-bold text-center text-[#1A1D20]">Інформація для клієнтів</h1>
+
+        <!-- Зміст сторінки -->
+        <nav aria-label="Розділи" class="mt-6 flex flex-wrap justify-center gap-2 text-sm">
+            <a href="#delivery" class="rounded-full border border-gray-300 bg-white px-4 py-2 hover:border-[#D92534] hover:text-[#D92534]">Доставка</a>
+            <a href="#payment" class="rounded-full border border-gray-300 bg-white px-4 py-2 hover:border-[#D92534] hover:text-[#D92534]">Оплата</a>
+            <a href="#faq" class="rounded-full border border-gray-300 bg-white px-4 py-2 hover:border-[#D92534] hover:text-[#D92534]">FAQ</a>
+            <a href="#offer" class="rounded-full border border-gray-300 bg-white px-4 py-2 hover:border-[#D92534] hover:text-[#D92534]">Оферта</a>
+            <a href="#privacy" class="rounded-full border border-gray-300 bg-white px-4 py-2 hover:border-[#D92534] hover:text-[#D92534]">Конфіденційність</a>
+            <a href="#terms" class="rounded-full border border-gray-300 bg-white px-4 py-2 hover:border-[#D92534] hover:text-[#D92534]">Умови використання</a>
+        </nav>
+
+        <div class="mt-10 space-y-8">
+            <section id="delivery" class="scroll-mt-28 rounded-2xl bg-white p-6 shadow-md">
+                <h2 class="mb-3 flex items-center gap-3 text-xl font-bold text-[#1A1D20]"><i class="fa-solid fa-truck-fast text-[#D92534]" aria-hidden="true"></i>Доставка</h2>
+                <ul class="list-disc space-y-2 pl-5 text-[#1A1D20]">
+                    <li>Бокси доставляємо Новою поштою по всій Україні у відділення або поштомат.</li>
+                    <li>Стандартна доставка — 2–4 дні, входить у вартість підписки.</li>
+                    <li>Експрес-доставка — 1–2 дні, +100 грн на місяць.</li>
+                    <li>Бокс відправляємо щомісяця в той самий день, коли була оформлена підписка.</li>
+                </ul>
+            </section>
+
+            <section id="payment" class="scroll-mt-28 rounded-2xl bg-white p-6 shadow-md">
+                <h2 class="mb-3 flex items-center gap-3 text-xl font-bold text-[#1A1D20]"><i class="fa-solid fa-credit-card text-[#D92534]" aria-hidden="true"></i>Оплата</h2>
+                <ul class="list-disc space-y-2 pl-5 text-[#1A1D20]">
+                    <li>Оплата карткою Visa або Mastercard одразу за весь період підписки.</li>
+                    <li>При підписці від 6 місяців діє знижка 10%.</li>
+                    <li>Подарункове пакування оплачується одноразово — 150 грн.</li>
+                </ul>
+            </section>
+
+            <section id="faq" class="scroll-mt-28 rounded-2xl bg-white p-6 shadow-md">
+                <h2 class="mb-3 flex items-center gap-3 text-xl font-bold text-[#1A1D20]"><i class="fa-solid fa-circle-question text-[#D92534]" aria-hidden="true"></i>Часті запитання</h2>
+                <div class="divide-y divide-gray-200">
+                    <details class="group py-3">
+                        <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-[#1A1D20]">Що буде в моєму боксі?<i class="fa-solid fa-chevron-down text-sm text-gray-400 transition group-open:rotate-180" aria-hidden="true"></i></summary>
+                        <p class="mt-2 text-gray-600">Щомісяця ви отримуєте випадкову гру обраного типу: «Сімейний», «Для вечірок» або «Хардкор». Ми стежимо, щоб ігри не повторювались.</p>
+                    </details>
+                    <details class="group py-3">
+                        <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-[#1A1D20]">Як обрати тип боксу?<i class="fa-solid fa-chevron-down text-sm text-gray-400 transition group-open:rotate-180" aria-hidden="true"></i></summary>
+                        <p class="mt-2 text-gray-600">Пройдіть <a href="index.html#quiz" class="text-[#D92534] underline">квіз на головній сторінці</a> — за 4 питання він порадить відповідний бокс.</p>
+                    </details>
+                    <details class="group py-3">
+                        <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-[#1A1D20]">Чи можна змінити тип боксу?<i class="fa-solid fa-chevron-down text-sm text-gray-400 transition group-open:rotate-180" aria-hidden="true"></i></summary>
+                        <p class="mt-2 text-gray-600">Так, напишіть нам через <a href="contacts.html" class="text-[#D92534] underline">форму зворотного зв'язку</a>, і зміни діятимуть з наступного місяця.</p>
+                    </details>
+                    <details class="group py-3">
+                        <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-[#1A1D20]">Що, якщо гра вже є вдома?<i class="fa-solid fa-chevron-down text-sm text-gray-400 transition group-open:rotate-180" aria-hidden="true"></i></summary>
+                        <p class="mt-2 text-gray-600">Ми безкоштовно обміняємо її на іншу гру того ж типу протягом 14 днів.</p>
+                    </details>
+                </div>
+            </section>
+
+            <section id="offer" class="scroll-mt-28 rounded-2xl bg-white p-6 shadow-md">
+                <h2 class="mb-3 flex items-center gap-3 text-xl font-bold text-[#1A1D20]"><i class="fa-solid fa-file-signature text-[#D92534]" aria-hidden="true"></i>Публічна оферта</h2>
+                <p class="text-[#1A1D20]">Оформлюючи підписку, ви погоджуєтесь отримувати щомісячні бокси обраного типу протягом оплаченого періоду. Вартість фіксується на момент оплати й не змінюється до кінця підписки.</p>
+            </section>
+
+            <section id="privacy" class="scroll-mt-28 rounded-2xl bg-white p-6 shadow-md">
+                <h2 class="mb-3 flex items-center gap-3 text-xl font-bold text-[#1A1D20]"><i class="fa-solid fa-shield-halved text-[#D92534]" aria-hidden="true"></i>Політика конфіденційності</h2>
+                <p class="text-[#1A1D20]">Ми використовуємо ваші ім'я, телефон, email і адресу доставки лише для виконання замовлення й не передаємо їх третім особам.</p>
+            </section>
+
+            <section id="terms" class="scroll-mt-28 rounded-2xl bg-white p-6 shadow-md">
+                <h2 class="mb-3 flex items-center gap-3 text-xl font-bold text-[#1A1D20]"><i class="fa-solid fa-scale-balanced text-[#D92534]" aria-hidden="true"></i>Умови використання</h2>
+                <p class="text-[#1A1D20]">Матеріали сайту призначені для ознайомлення з сервісом. Фотографії ігор частково взято з Unsplash за вільною ліцензією.</p>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-[#1A1D20] text-white pt-12 pb-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="pt-6 text-center md:flex md:justify-between md:items-center text-xs text-gray-500">
+            <p class="mb-3 md:mb-0">© 2025 Кубики &amp; Карти. Всі права захищено.</p>
+            <nav class="flex justify-center items-center gap-2" aria-label="Юридична інформація">
+                <a href="info.html#privacy" class="hover:text-gray-300 transition focus:outline-none focus:underline">Політика конфіденційності</a>
+                <span class="text-gray-600" aria-hidden="true">•</span>
+                <a href="info.html#terms" class="hover:text-gray-300 transition focus:outline-none focus:underline">Умови використання</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

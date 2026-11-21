@@ -1,12 +1,13 @@
 // Калькулятор підписки «Кубики & Карти»
-// ВЕРСІЯ 2: з валідацією та захистом від Edge Cases (QA-перевірено).
+// ВЕРСІЯ 3: валідація та захист від Edge Cases (QA-перевірено) + перехід до сторінки оплати.
 // Весь код в IIFE, щоб змінні не потрапляли в глобальну область.
 (function () {
   'use strict';
 
+  const P = window.KubykyPricing;
+
   // ---------- DOM ----------
   const dialog = document.getElementById('subscription-dialog');
-  const openBtn = document.getElementById('open-subscription');
   const closeBtn = document.getElementById('close-subscription');
   const form = document.getElementById('subscription-form');
 
@@ -17,36 +18,22 @@
 
   const monthlyEl = document.getElementById('sub-monthly');
   const totalEl = document.getElementById('sub-total');
-  const statusEl = document.getElementById('sub-status');
+  const noteEl = document.getElementById('sub-note');
   const errorMonths = document.getElementById('error-months');
   const submitBtn = document.getElementById('sub-submit');
 
-  const subModal = document.getElementById('subSuccessModal');
-  const subModalSum = document.getElementById('subModalSum');
-  const subModalClose = document.getElementById('subModalCloseBtn');
-
-  // Захист від відсутніх DOM-елементів: віджет просто не запускається, сторінка не падає
+  // Захист від відсутніх DOM-елементів і правил цін: віджет не запускається, сторінка не падає
   const required = {
-    dialog, openBtn, closeBtn, form, monthsInput, boxGroup, expressCheckbox,
-    giftCheckbox, monthlyEl, totalEl, errorMonths, submitBtn,
-    subModal, subModalSum, subModalClose
+    pricing: P, dialog, closeBtn, form, monthsInput, boxGroup, expressCheckbox,
+    giftCheckbox, monthlyEl, totalEl, errorMonths, submitBtn
   };
   const missing = Object.keys(required).filter(function (k) { return !required[k]; });
   if (missing.length > 0) {
-    console.warn('Калькулятор підписки вимкнено, не знайдено елементи:', missing.join(', '));
+    console.warn('Калькулятор підписки вимкнено, не знайдено:', missing.join(', '));
     return;
   }
 
-  // ---------- Бізнес-правила ----------
-  const BOX_PRICES = { family: 500, party: 650, hardcore: 800 };
-  const EXPRESS_PRICE = 100;   // грн на місяць
-  const GIFT_PRICE = 150;      // грн одноразово
-  const DISCOUNT_FROM = 6;     // місяців
-  const DISCOUNT = 0.9;        // знижка 10%
-  const MIN_MONTHS = 1;
-  const MAX_MONTHS = 36;
-
-  const RANGE_MSG = 'Введіть кількість місяців від ' + MIN_MONTHS + ' до ' + MAX_MONTHS + '.';
+  const RANGE_MSG = 'Введіть кількість місяців від ' + P.MIN_MONTHS + ' до ' + P.MAX_MONTHS + '.';
 
   // ---------- Валідація ----------
   function validateMonths() {
@@ -58,11 +45,8 @@
     } else if (!/^\d+$/.test(raw)) {
       // відсікає "-5", "1e2", "2.5", "+3" тощо
       message = 'Кількість місяців має бути цілим числом без символів. ' + RANGE_MSG;
-    } else {
-      const n = Number(raw);
-      if (n < MIN_MONTHS || n > MAX_MONTHS) {
-        message = RANGE_MSG;
-      }
+    } else if (!P.isValidMonths(raw)) {
+      message = RANGE_MSG;
     }
 
     const isValid = message === '';
@@ -83,30 +67,27 @@
     return checked ? checked.value : '';
   }
 
+  function setBox(box) {
+    if (!P.isValidBox(box)) return;
+    const radio = boxGroup.querySelector('input[name="box"][value="' + box + '"]');
+    if (radio) radio.checked = true;
+  }
+
   // ---------- Розрахунок ----------
   function calculate() {
-    const boxValue = getBoxValue();
-    if (!validateMonths() || !Object.prototype.hasOwnProperty.call(BOX_PRICES, boxValue)) {
+    const monthsOk = validateMonths();
+    const result = monthsOk
+      ? P.calculate(monthsInput.value, getBoxValue(), expressCheckbox.checked, giftCheckbox.checked)
+      : null;
+
+    if (!result) {
       monthlyEl.textContent = '0 грн';
       totalEl.textContent = '0 грн';
-      return false;
+      return null;
     }
-
-    const months = parseInt(monthsInput.value, 10);
-    const boxPrice = BOX_PRICES[boxValue];
-    const express = expressCheckbox.checked ? EXPRESS_PRICE : 0;
-    const gift = giftCheckbox.checked ? GIFT_PRICE : 0;
-
-    const monthly = boxPrice + express;
-    let total = monthly * months;
-    if (months >= DISCOUNT_FROM) {
-      total = total * DISCOUNT;
-    }
-    total = Math.round(total + gift);
-
-    monthlyEl.textContent = monthly + ' грн';
-    totalEl.textContent = total + ' грн';
-    return true;
+    monthlyEl.textContent = result.monthly + ' грн';
+    totalEl.textContent = result.total + ' грн';
+    return result;
   }
 
   // ---------- Захист поля місяців ----------
@@ -131,55 +112,52 @@
   expressCheckbox.addEventListener('change', calculate);
   giftCheckbox.addEventListener('change', calculate);
 
-  // ---------- Вікно успіху ----------
-  function openSubSuccess(totalText) {
-    subModalSum.textContent = totalText;
-    subModal.classList.remove('hidden');
-    subModal.classList.add('flex');
-    subModalClose.focus();
-  }
-
-  function closeSubSuccess() {
-    subModal.classList.add('hidden');
-    subModal.classList.remove('flex');
-    form.reset();
-    calculate();
-  }
-
-  subModalClose.addEventListener('click', closeSubSuccess);
-  subModal.addEventListener('click', function (e) {
-    if (e.target === subModal) {
-      closeSubSuccess();
-    }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !subModal.classList.contains('hidden')) {
-      closeSubSuccess();
-    }
-  });
-
-  // ---------- Оформлення підписки ----------
+  // ---------- Оформлення: перехід на сторінку оплати ----------
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     if (!calculate()) {
       monthsInput.focus();
-      return;               // вікно успіху не відкриється для некоректних даних
+      return;               // некоректні дані — на оплату не переходимо
     }
 
-    const totalText = totalEl.textContent;
-    dialog.close();         // калькулятор у top layer, тому закриваємо його
-    openSubSuccess(totalText);
+    // Параметри замовлення передаються в URL; checkout.js перевіряє їх ще раз
+    const params = new URLSearchParams({
+      months: monthsInput.value.trim(),
+      box: getBoxValue(),
+      express: expressCheckbox.checked ? '1' : '0',
+      gift: giftCheckbox.checked ? '1' : '0'
+    });
+    window.location.href = 'checkout.html?' + params.toString();
   });
 
   // ---------- Відкриття та закриття калькулятора ----------
-  openBtn.addEventListener('click', function () {
-    if (statusEl) {
-      statusEl.textContent = '';
+  // Будь-яка кнопка з атрибутом data-open-subscription відкриває калькулятор.
+  // data-box — який бокс обрати, data-game — назва гри для підказки.
+  function openCalculator(trigger) {
+    const box = trigger.getAttribute('data-box');
+    const game = trigger.getAttribute('data-game');
+    setBox(box);
+
+    if (noteEl) {
+      if (game && P.isValidBox(box)) {
+        noteEl.textContent = 'Гра «' + game + '» входить до боксу «' + P.BOXES[box].name + '». Його вже обрано нижче.';
+        noteEl.classList.remove('hidden');
+      } else {
+        noteEl.textContent = '';
+        noteEl.classList.add('hidden');
+      }
     }
+
     calculate();
     dialog.showModal();
+  }
+
+  document.addEventListener('click', function (e) {
+    const trigger = e.target.closest('[data-open-subscription]');
+    if (trigger) openCalculator(trigger);
   });
+
   closeBtn.addEventListener('click', function () {
     dialog.close();
   });
@@ -189,6 +167,16 @@
       dialog.close();
     }
   });
+
+  // Відкриття калькулятора за посиланням index.html#subscribe (наприклад, з каталогу).
+  // Необов'язкові параметри ?box=...&game=... обирають бокс і показують підказку про гру.
+  if (window.location.hash === '#subscribe') {
+    const params = new URLSearchParams(window.location.search);
+    const fake = document.createElement('button');
+    if (P.isValidBox(params.get('box'))) fake.setAttribute('data-box', params.get('box'));
+    if (params.get('game')) fake.setAttribute('data-game', params.get('game').slice(0, 40));
+    openCalculator(fake);
+  }
 
   calculate();
 })();

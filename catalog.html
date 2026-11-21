@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кубики & Карти - Каталог ігор</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="contacts-page">
+<header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+        <div class="logo">
+            <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg">
+                <img src="assets/images/logo_1.svg" alt="Кубики & Карти" class="h-10 w-auto object-contain">
+            </a>
+        </div>
+        <nav class="menu order-3 lg:order-2 w-full lg:w-auto overflow-x-auto py-1">
+            <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max">
+                <li><a href="index.html" class="hover:text-black transition px-2 lg:px-0">Головна сторінка</a></li>
+                <li><a href="catalog.html" class="active text-[#D92534] font-semibold pb-1 border-b-2 border-[#D92534] transition" aria-current="page">Каталог</a></li>
+                <li><a href="about.html" class="hover:text-black transition px-2 lg:px-0">Про сервіс</a></li>
+                <li><a href="contacts.html" class="hover:text-black transition px-2 lg:px-0">Контакти</a></li>
+            </ul>
+        </nav>
+        <div class="flex items-center gap-2 order-2 lg:order-3">
+            <button class="btn-login px-6 py-2 text-base font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
+            <button class="btn-quiz px-6 py-2 text-base font-semibold text-white bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] rounded-xl transition shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400" type="button">Пройти квіз</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- <section>: каталог ігор (картки будує catalog.js з даних games.js) -->
+    <section class="max-w-7xl mx-auto px-4 py-8 md:py-12" aria-labelledby="catalog-title">
+        <h1 id="catalog-title" class="font-[Raleway] text-2xl md:text-3xl font-bold text-center text-[#1A1D20]">Каталог ігор</h1>
+        <p class="mt-2 mb-8 text-center text-sm text-gray-500">Купіть конкретну гру без підписки або отримуйте схожі ігри в щомісячному боксі. Наведіть на гру, щоб побачити опис.</p>
+
+        <!-- Адаптивна сітка: 1 колонка на мобільних, 2 на планшетах, 4–5 на десктопі -->
+        <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6"></div>
+        <noscript><p class="text-center text-gray-500">Щоб побачити каталог, увімкніть JavaScript.</p></noscript>
+
+        <div class="mt-12 rounded-2xl bg-[#F5F5F5] p-6 text-center">
+            <h2 class="text-lg font-bold text-[#1A1D20]">Не знаєте, що обрати?</h2>
+            <p class="mt-1 text-gray-600">Пройдіть квіз із 4 питань, і ми порадимо гру для вашої компанії.</p>
+            <a href="index.html#quiz" class="mt-4 inline-flex min-h-[44px] items-center rounded-xl bg-[#D92534] px-6 py-3 font-semibold text-white transition hover:bg-[#b51d2a] focus:outline-none focus:ring-2 focus:ring-red-400">Пройти квіз</a>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-[#1A1D20] text-white pt-12 pb-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="pt-6 text-center md:flex md:justify-between md:items-center text-xs text-gray-500">
+            <p class="mb-3 md:mb-0">© 2025 Кубики &amp; Карти. Всі права захищено.</p>
+            <nav class="flex justify-center items-center gap-2" aria-label="Юридична інформація">
+                <a href="info.html#privacy" class="hover:text-gray-300 transition focus:outline-none focus:underline">Політика конфіденційності</a>
+                <span class="text-gray-600" aria-hidden="true">•</span>
+                <a href="info.html#terms" class="hover:text-gray-300 transition focus:outline-none focus:underline">Умови використання</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/pricing.js" defer></script>
+<script src="assets/js/games.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/catalog.js" defer></script>
+</body>
+</html>

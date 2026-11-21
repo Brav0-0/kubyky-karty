@@ -23,6 +23,7 @@
         <nav class="menu order-3 lg:order-2 w-full lg:w-auto overflow-x-auto py-1">
             <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max">
                 <li><a href="index.html" class="hover:text-black transition px-2 lg:px-0">Головна сторінка</a></li>
+                <li><a href="catalog.html" class="hover:text-black transition px-2 lg:px-0">Каталог</a></li>
                 <li><a href="about.html" class="active text-[#D92534] font-semibold pb-1 border-b-2 border-[#D92534] transition" aria-current="page">Про сервіс</a></li>
                 <li><a href="contacts.html" class="hover:text-black transition px-2 lg:px-0">Контакти</a></li>
             </ul>
@@ -205,14 +206,13 @@
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">Розумна підписка на настільні ігри</p>
                 <div class="flex items-center gap-3 pt-1" aria-label="Соціальні мережі">
-                    <!-- TODO: додати справжні посилання на соцмережі. -->
-                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Instagram">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Instagram">
                         <i class="fa-brands fa-instagram text-sm" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Facebook">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Facebook">
                         <i class="fa-brands fa-facebook-f text-sm" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Telegram">
+                    <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#D92534] flex items-center justify-center text-gray-300 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="Telegram">
                         <i class="fa-brands fa-telegram text-sm" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -220,10 +220,9 @@
             <nav aria-label="Клієнтам" class="space-y-4">
                 <h2 class="text-base font-semibold text-white">Клієнтам</h2>
                 <ul class="space-y-2.5 text-sm text-gray-400">
-                    <!-- TODO: додати маршрути для інформаційних сторінок. -->
-                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Доставка</a></li>
-                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оплата</a></li>
-                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">FAQ</a></li>
+                    <li><a href="info.html#delivery" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Доставка</a></li>
+                    <li><a href="info.html#payment" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оплата</a></li>
+                    <li><a href="info.html#faq" class="hover:text-white transition duration-150 focus:outline-none focus:underline">FAQ</a></li>
                 </ul>
             </nav>
             <nav aria-label="Компанія" class="space-y-4">
@@ -231,8 +230,7 @@
                 <ul class="space-y-2.5 text-sm text-gray-400">
                     <li><a href="about.html" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Про нас</a></li>
                     <li><a href="contacts.html" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Контакти</a></li>
-                    <!-- TODO: додати сторінку оферти. -->
-                    <li><a href="#" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оферта</a></li>
+                    <li><a href="info.html#offer" class="hover:text-white transition duration-150 focus:outline-none focus:underline">Оферта</a></li>
                 </ul>
             </nav>
             <form class="space-y-3">
@@ -256,10 +254,9 @@
         <div class="pt-6 border-t border-gray-800 text-center md:flex md:justify-between md:items-center text-xs text-gray-500">
             <p class="mb-3 md:mb-0">© 2025 Кубики &amp; Карти. Всі права захищено.</p>
             <nav class="flex justify-center items-center gap-2" aria-label="Юридична інформація">
-                <!-- TODO: додати сторінки політики конфіденційності та умов використання. -->
-                <a href="#" class="hover:text-gray-300 transition focus:outline-none focus:underline">Політика конфіденційності</a>
+                <a href="info.html#privacy" class="hover:text-gray-300 transition focus:outline-none focus:underline">Політика конфіденційності</a>
                 <span class="text-gray-600" aria-hidden="true">•</span>
-                <a href="#" class="hover:text-gray-300 transition focus:outline-none focus:underline">Умови використання</a>
+                <a href="info.html#terms" class="hover:text-gray-300 transition focus:outline-none focus:underline">Умови використання</a>
             </nav>
         </div>
     </div>
