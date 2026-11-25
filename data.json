@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "updated": "2026-11-25",
+  "games": [
+    {
+      "id": "catan",
+      "name": "Катан",
+      "price": 1650,
+      "box": "hardcore",
+      "genre": "Стратегія",
+      "players": "3–4",
+      "duration": "60–120 хв",
+      "age": "10+",
+      "minAge": 10,
+      "image": "assets/images/catan",
+      "text": "Освоюйте острів: будуйте дороги й поселення, торгуйте ресурсами з іншими гравцями та першими наберіть 10 очок перемоги.",
+      "tags": {
+        "players": [
+          2
+        ],
+        "company": [
+          "hardcore",
+          "family"
+        ],
+        "time": [
+          "long"
+        ],
+        "mood": [
+          "strategy"
+        ]
+      }
+    },
+    {
+      "id": "domino",
+      "name": "Доміно",
+      "price": 350,
+      "box": "family",
+      "genre": "Класика",
+      "players": "2–4",
+      "duration": "15–30 хв",
+      "age": "6+",
+      "minAge": 6,
+      "image": "assets/images/domino",
+      "text": "Класична гра з кістками: прикладайте плитки з однаковою кількістю точок і позбудьтеся своїх першим.",
+      "tags": {
+        "players": [
+          1
+        ],
+        "company": [
+          "couple",
+          "family"
+        ],
+        "time": [
+          "short"
+        ],
+        "mood": [
+          "easy"
+        ]
+      }
+    },
+    {
+      "id": "carcassonne",
+      "name": "Каркассон",
+      "price": 1100,
+      "box": "family",
+      "genre": "Сімейна стратегія",
+      "players": "2–5",
+      "duration": "30–45 хв",
+      "age": "7+",
+      "minAge": 7,
+      "image": "assets/images/carcassonne",
+      "text": "Викладайте тайли й разом будуйте середньовічну Францію: міста, дороги та монастирі, займаючи їх своїми мiплами.",
+      "tags": {
+        "players": [
+          2,
+          3
+        ],
+        "company": [
+          "family"
+        ],
+        "time": [
+          "medium"
+        ],
+        "mood": [
+          "easy",
+          "strategy"
+        ]
+      }
+    },
+    {
+      "id": "mafia",
+      "name": "Мафія",
+      "price": 300,
+      "box": "party",
+      "genre": "Рольова / вечірка",
+      "players": "6–15",
+      "duration": "30–60 хв",
+      "age": "14+",
+      "minAge": 14,
+      "image": "assets/images/mafia",
+      "text": "Рольова гра на блеф і дедукцію: мирні жителі шукають мафію, а мафія намагається не видати себе до ранку.",
+      "tags": {
+        "players": [
+          4
+        ],
+        "company": [
+          "party"
+        ],
+        "time": [
+          "medium"
+        ],
+        "mood": [
+          "fun"
+        ]
+      }
+    },
+    {
+      "id": "chess",
+      "name": "Шахи",
+      "price": 800,
+      "box": "hardcore",
+      "genre": "Абстрактна стратегія",
+      "players": "2",
+      "duration": "30–90 хв",
+      "age": "6+",
+      "minAge": 6,
+      "image": "https://images.unsplash.com/photo-1695480542225-bc22cac128d0",
+      "text": "Дерев'яний набір для гри, де все вирішує стратегія: жодної удачі, лише ваш розрахунок на кілька ходів уперед.",
+      "tags": {
+        "players": [
+          1
+        ],
+        "company": [
+          "couple",
+          "hardcore"
+        ],
+        "time": [
+          "long"
+        ],
+        "mood": [
+          "strategy"
+        ]
+      }
+    },
+    {
+      "id": "monopoly",
+      "name": "Монополія",
+      "price": 1200,
+      "box": "family",
+      "genre": "Економічна",
+      "players": "2–6",
+      "duration": "60–180 хв",
+      "age": "8+",
+      "minAge": 8,
+      "image": "https://images.unsplash.com/photo-1677188010559-0667a1ed33a0",
+      "text": "Купуйте вулиці, будуйте будинки й готелі та збирайте орендну плату, доки суперники не збанкрутують.",
+      "tags": {
+        "players": [
+          2,
+          3
+        ],
+        "company": [
+          "family",
+          "party"
+        ],
+        "time": [
+          "long"
+        ],
+        "mood": [
+          "luck"
+        ]
+      }
+    },
+    {
+      "id": "ludo",
+      "name": "Лудо",
+      "price": 400,
+      "box": "family",
+      "genre": "Дитяча / сімейна",
+      "players": "2–4",
+      "duration": "20–40 хв",
+      "age": "5+",
+      "minAge": 5,
+      "image": "https://images.unsplash.com/photo-1629760946220-5693ee4c46ac",
+      "text": "Кидайте кубик і проведіть усі свої фішки по колу до будиночка, збиваючи фішки суперників на шляху.",
+      "tags": {
+        "players": [
+          2
+        ],
+        "company": [
+          "family"
+        ],
+        "time": [
+          "short"
+        ],
+        "mood": [
+          "luck"
+        ]
+      }
+    },
+    {
+      "id": "risk",
+      "name": "Ризик",
+      "price": 1500,
+      "box": "hardcore",
+      "genre": "Військова стратегія",
+      "players": "3–5",
+      "duration": "2–3 год",
+      "age": "10+",
+      "minAge": 10,
+      "image": "https://images.unsplash.com/photo-1761716475708-ef98183ccb62",
+      "text": "Стратегія завоювання світу на великому полі: розставляйте армії, укладайте союзи й захоплюйте континенти.",
+      "tags": {
+        "players": [
+          3
+        ],
+        "company": [
+          "hardcore",
+          "party"
+        ],
+        "time": [
+          "long"
+        ],
+        "mood": [
+          "strategy",
+          "luck"
+        ]
+      }
+    },
+    {
+      "id": "yahtzee",
+      "name": "Яцзи",
+      "price": 450,
+      "box": "party",
+      "genre": "Кубики / вечірка",
+      "players": "1–10",
+      "duration": "20–30 хв",
+      "age": "8+",
+      "minAge": 8,
+      "image": "https://images.unsplash.com/photo-1547638375-ebf04735d792",
+      "text": "Гра з п'ятьма кубиками: за три кидки збирайте комбінації на кшталт покеру та заповнюйте таблицю очок.",
+      "tags": {
+        "players": [
+          3,
+          4
+        ],
+        "company": [
+          "party",
+          "family"
+        ],
+        "time": [
+          "short"
+        ],
+        "mood": [
+          "luck",
+          "fun"
+        ]
+      }
+    },
+    {
+      "id": "poker",
+      "name": "Покер",
+      "price": 700,
+      "box": "party",
+      "genre": "Карткова",
+      "players": "2–10",
+      "duration": "60+ хв",
+      "age": "18+",
+      "minAge": 18,
+      "image": "https://images.unsplash.com/photo-1541278107931-e006523892df",
+      "text": "Набір із двох колод карт і фішок для покеру: блефуйте, оцінюйте шанси та забирайте банк.",
+      "tags": {
+        "players": [
+          3,
+          4
+        ],
+        "company": [
+          "party",
+          "hardcore"
+        ],
+        "time": [
+          "medium"
+        ],
+        "mood": [
+          "luck",
+          "strategy"
+        ]
+      }
+    }
+  ]
+}

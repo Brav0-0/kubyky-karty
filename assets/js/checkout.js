@@ -18,15 +18,31 @@
   // Два типи замовлення: ?game=catan (покупка гри) або ?months=..&box=.. (підписка)
   const params = new URLSearchParams(window.location.search);
   const G = window.KubykyGames;
-  const game = G && params.has('game') ? G.byId(params.get('game')) : null;
 
   function setText(id, text) {
     const el = document.getElementById(id);
     if (el) el.textContent = text;
   }
 
-  if (game) {
-    setupGameOrder(game);
+  function showEmpty() {
+    content.hidden = true;
+    emptyBlock.hidden = false;
+  }
+
+  // Покупка гри: дані гри беремо з data.json (асинхронно). Невідомий id або помилка
+  // завантаження — показуємо блок «замовлення не знайдено», а не порожню форму.
+  if (params.has('game')) {
+    content.hidden = true;
+    if (!G) { showEmpty(); return; }
+    G.load().then(function () {
+      const game = G.byId(params.get('game'));
+      if (!game) { showEmpty(); return; }
+      content.hidden = false;
+      setupGameOrder(game);
+    }).catch(function (err) {
+      console.error(err);
+      showEmpty();
+    });
     return;
   }
 
@@ -39,11 +55,11 @@
   const price = P.calculate(order.months, order.box, order.express, order.gift);
 
   if (!price) {
-    content.hidden = true;
-    emptyBlock.hidden = false;
+    showEmpty();
     return;
   }
 
+  content.hidden = false; // форму показуємо лише для коректного замовлення (до цього вона прихована в HTML)
   setupForm(function () { return price.total; }, 'Перший бокс приїде', 'Підписку оформлено!');
 
   function monthsWord(n) {
@@ -76,8 +92,8 @@
     document.title = 'Купівля гри ' + g.name + ' — Кубики & Карти';
     setText('co-title', 'Купівля гри «' + g.name + '»');
     setText('co-back-text', 'Повернутися до каталогу');
-    document.getElementById('co-back').href = 'index.html#catalog';
-    document.getElementById('sum-change').href = 'index.html#catalog';
+    document.getElementById('co-back').href = 'catalog.html';
+    document.getElementById('sum-change').href = 'catalog.html';
     document.getElementById('sum-change').lastChild.textContent = ' Обрати іншу гру';
     document.getElementById('sum-subscription').hidden = true;
     document.getElementById('sum-game').hidden = false;

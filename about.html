@@ -14,6 +14,8 @@
     <meta property="og:url" content="https://kubyky-karty.vercel.app/about.html">
     <meta property="og:image" content="https://kubyky-karty.vercel.app/assets/images/og-image.jpg">
     <meta property="og:locale" content="uk_UA">
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/analytics.js" defer></script>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +31,7 @@
     <link rel="stylesheet" href="css/tailwind.css">
 </head>
 <body class="about-page">
-<header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50">
+<header class="navbar bg-white border-b border-gray-200 sticky top-0 z-50 dark:bg-slate-800 dark:border-slate-700">
     <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         <div class="logo">
             <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-red-400 rounded-lg">
@@ -37,15 +39,20 @@
             </a>
         </div>
         <nav class="menu order-3 lg:order-2 w-full lg:w-auto overflow-x-auto py-1">
-            <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max">
-                <li><a href="index.html" class="hover:text-black transition px-2 lg:px-0">Головна сторінка</a></li>
-                <li><a href="catalog.html" class="hover:text-black transition px-2 lg:px-0">Каталог</a></li>
-                <li><a href="about.html" class="active text-[#D92534] font-semibold pb-1 border-b-2 border-[#D92534] transition" aria-current="page">Про сервіс</a></li>
-                <li><a href="contacts.html" class="hover:text-black transition px-2 lg:px-0">Контакти</a></li>
+            <ul class="flex items-center justify-between lg:gap-8 text-sm font-medium text-gray-700 min-w-max dark:text-slate-300">
+                <li><a href="index.html" class="hover:text-black transition px-2 lg:px-0 dark:hover:text-white">Головна сторінка</a></li>
+                <li><a href="catalog.html" class="hover:text-black transition px-2 lg:px-0 dark:hover:text-white">Каталог</a></li>
+                <li><a href="about.html" class="active text-[#D92534] font-semibold pb-1 border-b-2 border-[#D92534] transition dark:text-red-400" aria-current="page">Про сервіс</a></li>
+                <li><a href="contacts.html" class="hover:text-black transition px-2 lg:px-0 dark:hover:text-white">Контакти</a></li>
             </ul>
         </nav>
         <div class="flex items-center gap-2 order-2 lg:order-3">
-            <button class="btn-login px-6 py-2 text-base font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300" type="button">Увійти</button>
+            <!-- Перемикач теми Dark/Light (логіка в assets/js/theme.js) -->
+            <button type="button" data-theme-toggle class="theme-toggle flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-solid border-gray-300 text-gray-700 transition hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-300 dark:border-slate-600 dark:text-slate-200 dark:hover:text-white" aria-label="Перемкнути тему" aria-pressed="false">
+                <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            </button>
+            <button class="btn-login px-6 py-2 text-base font-semibold text-gray-700 hover:text-black border border-gray-300 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-gray-300 dark:text-slate-300 dark:hover:text-white dark:border-slate-600" type="button">Увійти</button>
             <button class="btn-quiz px-4 py-2 text-sm font-semibold text-white bg-[#D92534] hover:bg-[#b51d2a] active:bg-[#961521] rounded-xl transition shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400" type="button">Пройти квіз</button>
         </div>
     </div>
@@ -54,24 +61,24 @@
     <main>
         <div class="max-w-7xl mx-auto px-4 py-8 space-y-12">
             <section class="text-center">
-                <h1 class="font-[Raleway] text-2xl md:text-3xl font-bold text-[#1A1D20]">Про сервіс</h1>
-                <p class="max-w-3xl mx-auto mt-4 text-[#1A1D20]">Наша місія — об'єднувати людей через настільні ігри, створюючи ідеальні вечори у колі друзів та родини. Ми допомагаємо знайти гру, яка точно відповідає вашим вподобанням, кількості гравців та атмосфері, яку ви хочете створити.</p>
+                <h1 class="font-[Raleway] text-2xl md:text-3xl font-bold text-[#1A1D20] dark:text-slate-100">Про сервіс</h1>
+                <p class="max-w-3xl mx-auto mt-4 text-[#1A1D20] dark:text-slate-100">Наша місія — об'єднувати людей через настільні ігри, створюючи ідеальні вечори у колі друзів та родини. Ми допомагаємо знайти гру, яка точно відповідає вашим вподобанням, кількості гравців та атмосфері, яку ви хочете створити.</p>
         </section>
 
             <section>
-                <h2 class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6">Як це працює</h2>
+                <h2 class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6 dark:text-slate-100">Як це працює</h2>
                 <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <li class="bg-white rounded-2xl shadow-md p-6">
+                    <li class="bg-white rounded-2xl shadow-md p-6 dark:bg-slate-800">
                         <span class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#D92534] font-semibold text-white">1</span>
-                        <p class="text-[#1A1D20]">Проходження квізу: Ви відповідаєте на кілька простих питань про свої вподобання та ігровий досвід.</p>
+                        <p class="text-[#1A1D20] dark:text-slate-100">Проходження квізу: Ви відповідаєте на кілька простих питань про свої вподобання та ігровий досвід.</p>
                     </li>
-                    <li class="bg-white rounded-2xl shadow-md p-6">
+                    <li class="bg-white rounded-2xl shadow-md p-6 dark:bg-slate-800">
                         <span class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#D92534] font-semibold text-white">2</span>
-                        <p class="text-[#1A1D20]">Аналіз алгоритмом: Наш унікальний алгоритм обробляє ваші відповіді та підбирає ігри з точністю 98%.</p>
+                        <p class="text-[#1A1D20] dark:text-slate-100">Аналіз алгоритмом: Наш унікальний алгоритм обробляє ваші відповіді та підбирає ігри з точністю 98%.</p>
                     </li>
-                    <li class="bg-white rounded-2xl shadow-md p-6">
+                    <li class="bg-white rounded-2xl shadow-md p-6 dark:bg-slate-800">
                         <span class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#D92534] font-semibold text-white">3</span>
-                        <p class="text-[#1A1D20]">Отримання боксу: Ви отримуєте персональний ігровий бокс з вибраними грою, аксесуарами та сюрпризами.</p>
+                        <p class="text-[#1A1D20] dark:text-slate-100">Отримання боксу: Ви отримуєте персональний ігровий бокс з вибраними грою, аксесуарами та сюрпризами.</p>
                     </li>
             </ol>
         </section>
@@ -80,115 +87,115 @@
 
 <!-- <section>: слайдер відгуків (Swiper.js) -->
 <section aria-labelledby="reviews-title">
-    <h2 id="reviews-title" class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6">Відгуки наших гравців</h2>
+    <h2 id="reviews-title" class="font-[Raleway] text-xl md:text-2xl font-bold text-center text-[#1A1D20] mb-6 dark:text-slate-100">Відгуки наших гравців</h2>
 
     <div class="relative md:px-12">
         <div class="swiper reviews-swiper pt-2 pb-12" style="--swiper-theme-color: #D92534;">
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide !h-auto">
-                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between dark:bg-slate-800">
                         <div>
-                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                            <div class="text-amber-400 text-sm mb-3" role="img" aria-label="Оцінка 5 з 5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Квіз допоміг знайти гру, яка ідеально підійшла для нашої компанії. Ми провели вечір зі сміхом та стратегічним плануванням.»</p>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6 dark:text-slate-100">«Квіз допоміг знайти гру, яка ідеально підійшла для нашої компанії. Ми провели вечір зі сміхом та стратегічним плануванням.»</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">О</span>
                             <div>
-                                <h3 class="font-bold text-[#1A1D20] text-sm">Олександр</h3>
-                                <p class="text-xs text-gray-500">28 років, Київ</p>
+                                <h3 class="font-bold text-[#1A1D20] text-sm dark:text-slate-100">Олександр</h3>
+                                <p class="text-xs text-gray-500 dark:text-slate-400">28 років, Київ</p>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <div class="swiper-slide !h-auto">
-                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between dark:bg-slate-800">
                         <div>
-                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 4 з 5">
+                            <div class="text-amber-400 text-sm mb-3" role="img" aria-label="Оцінка 4 з 5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                             </div>
-                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Сервіс зручний і швидкий. Отримали бокс з новою грою, якої ще не грали. Сімейний вечір пройшов на висоті!»</p>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6 dark:text-slate-100">«Сервіс зручний і швидкий. Отримали бокс з новою грою, якої ще не грали. Сімейний вечір пройшов на висоті!»</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">М</span>
                             <div>
-                                <h3 class="font-bold text-[#1A1D20] text-sm">Марія</h3>
-                                <p class="text-xs text-gray-500">34 роки, Львів</p>
+                                <h3 class="font-bold text-[#1A1D20] text-sm dark:text-slate-100">Марія</h3>
+                                <p class="text-xs text-gray-500 dark:text-slate-400">34 роки, Львів</p>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <div class="swiper-slide !h-auto">
-                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between dark:bg-slate-800">
                         <div>
-                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                            <div class="text-amber-400 text-sm mb-3" role="img" aria-label="Оцінка 5 з 5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Граємо з друзями раз на місяць. Щоразу отримуємо нові та цікаві пропозиції. Дякую за вашу роботу!»</p>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6 dark:text-slate-100">«Граємо з друзями раз на місяць. Щоразу отримуємо нові та цікаві пропозиції. Дякую за вашу роботу!»</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">Д</span>
                             <div>
-                                <h3 class="font-bold text-[#1A1D20] text-sm">Дмитро</h3>
-                                <p class="text-xs text-gray-500">22 роки, Одеса</p>
+                                <h3 class="font-bold text-[#1A1D20] text-sm dark:text-slate-100">Дмитро</h3>
+                                <p class="text-xs text-gray-500 dark:text-slate-400">22 роки, Одеса</p>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <div class="swiper-slide !h-auto">
-                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between dark:bg-slate-800">
                         <div>
-                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                            <div class="text-amber-400 text-sm mb-3" role="img" aria-label="Оцінка 5 з 5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Каркассон з боксу став улюбленою грою на вихідні. Правила пояснили так просто, що навіть діти зрозуміли з першого разу.»</p>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6 dark:text-slate-100">«Каркассон з боксу став улюбленою грою на вихідні. Правила пояснили так просто, що навіть діти зрозуміли з першого разу.»</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">І</span>
                             <div>
-                                <h3 class="font-bold text-[#1A1D20] text-sm">Ірина</h3>
-                                <p class="text-xs text-gray-500">41 рік, Харків</p>
+                                <h3 class="font-bold text-[#1A1D20] text-sm dark:text-slate-100">Ірина</h3>
+                                <p class="text-xs text-gray-500 dark:text-slate-400">41 рік, Харків</p>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <div class="swiper-slide !h-auto">
-                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between dark:bg-slate-800">
                         <div>
-                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 4 з 5">
+                            <div class="text-amber-400 text-sm mb-3" role="img" aria-label="Оцінка 4 з 5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                             </div>
-                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Для вечірок з великою компанією підібрали Мафію з доповненнями. Усі залишились у захваті, повторимо наступного місяця.»</p>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6 dark:text-slate-100">«Для вечірок з великою компанією підібрали Мафію з доповненнями. Усі залишились у захваті, повторимо наступного місяця.»</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">А</span>
                             <div>
-                                <h3 class="font-bold text-[#1A1D20] text-sm">Андрій</h3>
-                                <p class="text-xs text-gray-500">26 років, Дніпро</p>
+                                <h3 class="font-bold text-[#1A1D20] text-sm dark:text-slate-100">Андрій</h3>
+                                <p class="text-xs text-gray-500 dark:text-slate-400">26 років, Дніпро</p>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <div class="swiper-slide !h-auto">
-                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+                    <article class="h-full bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between dark:bg-slate-800">
                         <div>
-                            <div class="text-amber-400 text-sm mb-3" aria-label="Оцінка 5 з 5">
+                            <div class="text-amber-400 text-sm mb-3" role="img" aria-label="Оцінка 5 з 5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6">«Доставили за два дні, упаковка акуратна. Катан для нас із чоловіком виявився саме тим, що шукали для вечорів удвох.»</p>
+                            <p class="text-[#1A1D20] text-sm leading-relaxed mb-6 dark:text-slate-100">«Доставили за два дні, упаковка акуратна. Катан для нас із чоловіком виявився саме тим, що шукали для вечорів удвох.»</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="w-11 h-11 rounded-full bg-[#D92534] text-white font-semibold flex items-center justify-center shrink-0" aria-hidden="true">С</span>
                             <div>
-                                <h3 class="font-bold text-[#1A1D20] text-sm">Софія</h3>
-                                <p class="text-xs text-gray-500">31 рік, Вінниця</p>
+                                <h3 class="font-bold text-[#1A1D20] text-sm dark:text-slate-100">Софія</h3>
+                                <p class="text-xs text-gray-500 dark:text-slate-400">31 рік, Вінниця</p>
                             </div>
                         </div>
                     </article>

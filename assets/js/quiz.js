@@ -1,5 +1,6 @@
 // Квіз підбору гри «Кубики & Карти».
-// 4 питання -> кожна гра з каталогу отримує бали за збіг з відповідями -> рекомендуємо конкретну гру.
+// 5 питань (гравці, вік, компанія, тривалість, жанр) -> кожна гра з data.json отримує бали
+// за збіг з відповідями -> рекомендуємо конкретну гру. Вік наймолодшого гравця — жорсткий фільтр.
 // Логіку підрахунку винесено в games.js (KubykyGames.recommend). Код в IIFE.
 (function () {
   'use strict';
@@ -17,6 +18,8 @@
   const buyLink = document.getElementById('quiz-buy');
   const restartBtn = document.getElementById('quiz-restart');
   const altList = document.getElementById('quiz-result-alt');
+  const matchEl = document.getElementById('quiz-result-match');
+  const warningEl = document.getElementById('quiz-result-warning');
 
   if (!G || !form || steps.length === 0 || !prevBtn || !nextBtn || !resultEl || !buyLink || !restartBtn || !altList) {
     console.warn('Квіз вимкнено: не знайдено потрібні елементи.');
@@ -24,7 +27,7 @@
   }
 
   // name радіокнопки -> ключ відповіді для KubykyGames.recommend
-  const KEYS = { 'q-players': 'players', 'q-company': 'company', 'q-time': 'time', 'q-mood': 'mood' };
+  const KEYS = { 'q-players': 'players', 'q-age': 'age', 'q-company': 'company', 'q-time': 'time', 'q-mood': 'mood' };
 
   let current = 0;
 
@@ -63,8 +66,14 @@
     return answers;
   }
 
-  // Показує картку гри в блоці результату
-  function showGame(game) {
+  // Показує картку гри в блоці результату (item = { game, percent, ageOk } з recommend)
+  function showGame(item) {
+    const game = item.game;
+    if (matchEl) matchEl.textContent = 'Збіг з вашими відповідями: ' + item.percent + '%';
+    if (warningEl) {
+      warningEl.textContent = item.ageOk ? '' : 'Увага: гра розрахована на вік ' + game.age + ', а в каталозі немає ідеального варіанту для наймолодшого гравця.';
+      warningEl.classList.toggle('hidden', item.ageOk);
+    }
     const img = document.getElementById('quiz-result-img');
     img.src = G.imageUrl(game, 700);
     img.alt = 'Гра ' + game.name;
@@ -79,24 +88,40 @@
   }
 
   // Альтернативи: кнопки, що перемикають картку на іншу гру
-  function showAlternatives(games) {
+  function showAlternatives(items) {
     altList.textContent = '';
-    games.forEach(function (game) {
+    const label = document.getElementById('quiz-result-alt-label');
+    if (label) label.hidden = items.length === 0;
+    items.forEach(function (item) {
+      const game = item.game;
       const li = document.createElement('li');
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'rounded-full border border-solid border-gray-300 bg-white px-4 py-1.5 text-sm text-[#1A1D20] transition hover:border-[#D92534] hover:text-[#D92534]';
-      btn.textContent = game.name + ' · ' + game.price + ' грн';
-      btn.addEventListener('click', function () { showGame(game); });
+      btn.className = 'rounded-full border border-solid border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-1.5 text-sm text-[#1A1D20] dark:text-slate-100 transition hover:border-[#D92534] hover:text-[#D92534]';
+      btn.textContent = game.name + ' · ' + item.percent + '% · ' + game.price + ' грн';
+      btn.addEventListener('click', function () { showGame(item); });
       li.appendChild(btn);
       altList.appendChild(li);
     });
   }
 
-  function showResult() {
-    const ranked = G.recommend(collectAnswers());
+  // Дані каталогу (data.json) завантажуються асинхронно; результат показуємо лише після завантаження
+  async function showResult() {
+    nextBtn.disabled = true;
+    let ranked;
+    try {
+      await G.load();
+      ranked = G.recommend(collectAnswers());
+    } catch (err) {
+      console.error(err);
+      showError('Не вдалося завантажити каталог ігор. Перевірте з’єднання і натисніть «Показати результат» ще раз.');
+      nextBtn.disabled = false;
+      return;
+    }
+    nextBtn.disabled = false;
     showGame(ranked[0]);
-    showAlternatives(ranked.slice(1, 3));
+    // альтернативи — лише ігри, що підходять за віком
+    showAlternatives(ranked.slice(1).filter(function (r) { return r.ageOk; }).slice(0, 2));
 
     form.hidden = true;
     stepLabel.textContent = 'Готово!';
@@ -143,4 +168,6 @@
   });
 
   render();
+  // Починаємо завантажувати data.json заздалегідь, поки користувач відповідає на питання
+  G.load().catch(function () { /* помилку покажемо при спробі отримати результат */ });
 })();

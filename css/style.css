@@ -1150,3 +1150,62 @@ body:not(.about-page):not(.contacts-page) .navbar .btn-quiz:hover {
 /* 8. Quality check: no hard-coded colors/sizes outside :root except 0,1px,100% */
 /* Note: rgba values are moved to tokens --color-overlay-light and --color-overlay-dark */
 /* Note: some hard-coded px values remain for border widths and offsets as they are not radius or transition durations, and some rem values are used for font size minima. */
+/* ===== Темна тема (html.dark) =====
+   Основні кольори сайту задано CSS-змінними, тому для темної теми достатньо перевизначити змінні;
+   кольори з утиліт Tailwind у розмітці перемикаються варіантами dark: (див. tailwind.config.js). */
+html.dark {
+    --color-background: #1e293b;   /* slate-800: картки, шапка, квіз */
+    --color-surface: #0f172a;      /* slate-900: фон секцій */
+    --color-primary-tint: rgba(217, 37, 52, 0.18);
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-border: #334155;
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+    --shadow-card-hover: 0 6px 24px rgba(0, 0, 0, 0.55);
+    --shadow-navbar: 0 2px 4px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+}
+html.dark body {
+    background-color: #0f172a;
+}
+html.dark .hero {
+    --hero-bg: #1e293b;
+}
+/* Логотип темний, на темному фоні робимо йому світлу «підкладку» */
+html.dark .navbar .logo img {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 2px;
+}
+/* Стан помилки поля має бути видно й у темній темі (dark:border-* інакше перекриває червону рамку) */
+html.dark [aria-invalid="true"],
+html.dark .border-red-500 {
+    border-color: #f87171 !important;
+}
+html.dark ::placeholder {
+    color: #64748b;
+}
+/* Плавна зміна кольорів під час перемикання теми (вимикається для тих, хто обмежує анімації) */
+@media (prefers-reduced-motion: no-preference) {
+    body, .navbar, .quiz, .option {
+        transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+    }
+}
+/* Фото в Hero має світлий фон: у темній темі показуємо його на світлій «картці» із заокругленням */
+html.dark .hero picture {
+    background-color: #F5F5F5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+/* Swiper: до ініціалізації слайди стоять у колонку, тому резервуємо висоту слайдера (без зсуву футера, CLS),
+   а крапки пагінації робимо більшими — зручна ціль для пальця (Lighthouse: target-size) */
+.reviews-swiper {
+    min-height: 300px;
+    --swiper-pagination-bullet-size: 12px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+    --swiper-pagination-bullet-inactive-color: #94a3b8;
+}
+.reviews-swiper:not(.swiper-initialized) .swiper-wrapper {
+    max-height: 260px;
+    overflow: hidden;
+}

@@ -3,6 +3,7 @@
  *  Команда: npm run build:css
  *  @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class', // темна тема вмикається класом .dark на <html> (assets/js/theme.js)
   content: ['./*.html', './assets/js/**/*.js'],
   theme: {
     extend: {}

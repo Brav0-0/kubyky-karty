@@ -1,6 +1,7 @@
 // CI-перевірка проєкту (запускається в GitHub Actions: npm run check:js).
 // 1) синтаксис усіх JS-файлів; 2) усі локальні посилання src/href у HTML ведуть на існуючі файли;
-// 3) у кожній сторінці є title, meta description, lang та рівно один <h1>.
+// 3) у кожній сторінці є title, meta description, lang та рівно один <h1>;
+// 4) data.json — валідний JSON зі списком ігор, у кожної гри є обов'язкові поля.
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
@@ -38,6 +39,19 @@ for (const page of pages) {
   const h1 = (html.match(/<h1[\s>]/g) || []).length;
   if (h1 !== 1) errors.push(page + ': очікується один <h1>, знайдено ' + h1);
   if (/cdn\.tailwindcss\.com/.test(html)) errors.push(page + ': підключено Tailwind CDN замість css/tailwind.css');
+}
+
+// 4. Mock-дані data.json
+try {
+  const data = JSON.parse(fs.readFileSync(path.join(root, 'data.json'), 'utf8'));
+  if (!Array.isArray(data.games) || data.games.length === 0) errors.push('data.json: немає масиву games');
+  else data.games.forEach(function (g, i) {
+    ['id', 'name', 'price', 'minAge', 'image', 'tags'].forEach(function (key) {
+      if (g[key] === undefined) errors.push('data.json: у грі #' + i + ' немає поля ' + key);
+    });
+  });
+} catch (err) {
+  errors.push('data.json: ' + err.message);
 }
 
 if (errors.length) {

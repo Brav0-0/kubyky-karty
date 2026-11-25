@@ -121,24 +121,24 @@ function setupLogin() {
   dialog.innerHTML =
     '<div class="p-6">' +
       '<div class="mb-5 flex items-start justify-between gap-4">' +
-        '<h2 id="login-title" class="text-xl font-bold text-[#1A1D20]">Вхід в акаунт</h2>' +
-        '<button type="button" data-close class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200" aria-label="Закрити"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>' +
+        '<h2 id="login-title" class="text-xl font-bold text-[#1A1D20] dark:text-slate-100">Вхід в акаунт</h2>' +
+        '<button type="button" data-close class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600" aria-label="Закрити"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>' +
       '</div>' +
       '<form data-login-form class="space-y-4" novalidate>' +
         '<div class="space-y-1">' +
-          '<label for="login-email" class="block text-sm font-medium text-[#1A1D20]">Email</label>' +
-          '<input id="login-email" type="email" autocomplete="email" placeholder="name@mail.com" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#D92534] focus:outline-none focus:ring-1 focus:ring-[#D92534]">' +
+          '<label for="login-email" class="block text-sm font-medium text-[#1A1D20] dark:text-slate-100">Email</label>' +
+          '<input id="login-email" type="email" autocomplete="email" placeholder="name@mail.com" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#D92534] focus:outline-none focus:ring-1 focus:ring-[#D92534] dark:border-slate-600">' +
         '</div>' +
         '<div class="space-y-1">' +
-          '<label for="login-password" class="block text-sm font-medium text-[#1A1D20]">Пароль</label>' +
-          '<input id="login-password" type="password" autocomplete="current-password" placeholder="Щонайменше 6 символів" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#D92534] focus:outline-none focus:ring-1 focus:ring-[#D92534]">' +
+          '<label for="login-password" class="block text-sm font-medium text-[#1A1D20] dark:text-slate-100">Пароль</label>' +
+          '<input id="login-password" type="password" autocomplete="current-password" placeholder="Щонайменше 6 символів" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#D92534] focus:outline-none focus:ring-1 focus:ring-[#D92534] dark:border-slate-600">' +
         '</div>' +
-        '<p data-login-error class="hidden text-xs font-medium text-red-600" role="alert"></p>' +
+        '<p data-login-error class="hidden text-xs font-medium text-red-600 dark:text-red-400" role="alert"></p>' +
         '<button type="submit" class="min-h-[44px] w-full rounded-xl bg-[#D92534] px-4 py-3 font-semibold text-white hover:bg-[#b51d2a]">Увійти</button>' +
       '</form>' +
       '<div data-login-done hidden class="space-y-4 text-center">' +
-        '<p class="text-[#1A1D20]">Ви увійшли як <strong data-login-user></strong></p>' +
-        '<button type="button" data-logout class="min-h-[44px] w-full rounded-xl border border-solid border-gray-300 px-4 py-3 font-semibold text-[#1A1D20] hover:border-[#D92534]">Вийти</button>' +
+        '<p class="text-[#1A1D20] dark:text-slate-100">Ви увійшли як <strong data-login-user></strong></p>' +
+        '<button type="button" data-logout class="min-h-[44px] w-full rounded-xl border border-solid border-gray-300 px-4 py-3 font-semibold text-[#1A1D20] hover:border-[#D92534] dark:border-slate-600 dark:text-slate-100">Вийти</button>' +
       '</div>' +
     '</div>';
   document.body.appendChild(dialog);
